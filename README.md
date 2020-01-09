@@ -1,8 +1,10 @@
 # DiscordPyBot
 
 ## Disclaimer
- At this moment in time, the bot only fully works in Windows 10
+ At this moment in time, the bot only fully works in Windows 10.
+
  This is because it has been developed and tested on this platform.
+ 
  I am in the works of making a Ubuntu compatible version as we speak, but the windows version has priority.
  (Note; most functions do work on ubuntu, but they can spit unneccesairy errors, also the tmp file system isnt working on Ubuntu)
 
