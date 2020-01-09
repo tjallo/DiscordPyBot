@@ -2,9 +2,11 @@
 
 ### Tech
 
-DiscordPyBot uses a number of open source projects to work properly:
+DiscordPyBot uses a number of Python libraries to work properly:
 
-* Coming soon
+* [PRAW](https://pypi.org/project/praw/)
+* [Wikipedia](https://pypi.org/project/wikipedia/)
+* [Discord.py](https://pypi.org/project/discord.py/)
 
 ### Configuration
 
