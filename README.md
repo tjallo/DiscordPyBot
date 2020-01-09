@@ -7,6 +7,7 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [PRAW](https://pypi.org/project/praw/)
 * [Wikipedia](https://pypi.org/project/wikipedia/)
 * [Discord.py](https://pypi.org/project/discord.py/)
+* [google_images_download](https://pypi.org/project/google_images_download/)
 
 ### Configuration
 
