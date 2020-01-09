@@ -81,7 +81,7 @@ async def on_message(message):
                 query = message.content[9:]
                 d.fryMe(g.googleImgSearch(query))
                 path = "Downloads/fried.jpeg"
-                file = discord.File(path, filename=path)            
+                file = discord.File(path, filename=path[-8:])            
                 await message.channel.send(file=file)         
                 u.removeDownloads()
             except:
