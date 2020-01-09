@@ -18,7 +18,11 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [google_images_download](https://pypi.org/project/google_images_download/)
 * [deeppyer](https://pypi.org/project/deeppyer/)
 
-### Configuration
+Use the provided installPip.bat (located in installation files folder) script to install all the PIP libraries for you.
+
+###  Installation and Configuration
+
+Install all required pip files by running installPip.bat which is located in the installation files folder.
 
  The only file that needs configuration right now is the "credentials.py"
  Edit the "example_crediantials.py" with your own credentials, and rename the file to "credentials.py"
