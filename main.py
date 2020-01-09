@@ -18,6 +18,7 @@ commandList = """
 !wiki - Get a wiki article
 !imgwiki - Get the first image on a Wiki Article
 !rkarma - Get an user's total karma on reddit
+!sourcecode - Get a GitHub link to the bot's source code
 """
 
 client = discord.Client()
@@ -31,7 +32,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!help' or '!yelp'):
+    if message.content.startswith('!help' or '!yelp'):        
         await message.channel.send(commandList)
     
     if message.content.startswith('!ping'):
@@ -39,12 +40,20 @@ async def on_message(message):
         await message.channel.send('Pong!')
     
     if message.content.startswith('!wiki'):
-        await message.channel.send(w.get_article(message.content[6:]))
+        if (len(message.content) == 5): await message.channel.send("Proper way to use is !wiki [wiki article]")
+        else:
+            await message.channel.send(w.get_article(message.content[6:]))
 
     if message.content.startswith('!imgwiki'):
-        await message.channel.send(w.get_image(message.content[9:]))   
+        if (len(message.content) == 8): await message.channel.send("Proper way to use is !imgwiki [wiki article]")
+        else:
+          await message.channel.send(w.get_image(message.content[9:]))   
 
     if message.content.startswith('!rkarma'):
-        await message.channel.send(r.get_karma(message.content[8:]))           
+        if (len(message.content) == 7): await message.channel.send("Proper way to use is !rkarma [reddit user name]")
+        else:
+            await message.channel.send(r.get_karma(message.content[8:]))   
+    if message.content.startswith('!sourcecode'):
+        await message.channel.send("You can finde the source code here: https://github.com/tjallo/DiscordPyBot")        
     
 client.run(token)

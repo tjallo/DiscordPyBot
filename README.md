@@ -28,6 +28,7 @@ Or using your own preferred method. Just run main.py
  * !wiki (wikiarticle) - Get a wiki article
  * !imgwiki (wikiarticle) - Get the first image on a Wiki Article
  * !rkarma (redditUserName) - Get an user's total karma on reddit
+ * !sourcecode - Get a GitHub link to the bot's source code
 
 ### Planned Updates
  
