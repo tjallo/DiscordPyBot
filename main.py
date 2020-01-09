@@ -4,13 +4,16 @@ from google_api import google_api
 from deepfryer import deepfry
 from discord.ext import commands
 from credentials import token
+from utils import utils
 import discord
+import os
 
 
 r = reddit_main
 w = wiki_api
 g = google_api
 d = deepfry
+u = utils
 
 commandList = """
 !help - See this message
@@ -19,6 +22,7 @@ commandList = """
 !imgwiki - Get the first image on a Wiki Article
 !rkarma - Get an user's total karma on reddit
 !sourcecode - Get a GitHub link to the bot's source code
+!imgsearch - Google and post an image
 """
 
 client = discord.Client()
@@ -54,6 +58,19 @@ async def on_message(message):
         else:
             await message.channel.send(r.get_karma(message.content[8:]))   
     if message.content.startswith('!sourcecode'):
-        await message.channel.send("You can finde the source code here: https://github.com/tjallo/DiscordPyBot")        
+        await message.channel.send("You can finde the source code here: https://github.com/tjallo/DiscordPyBot")
+
+    if message.content.startswith('!imgsearch'):
+        if (len(message.content) == 10): await message.channel.send("Proper way to use is !imgsearch [query]")
+        else:
+            try:
+                query = message.content[11:]
+                path = g.googleImgSearch(query)
+                file = discord.File(path, filename=path[-5:])            
+                await message.channel.send(file=file) 
+                os.remove(path)
+                u.removeDownloads()
+            except:
+                await message.channel.send("No such image was found :(")                 
     
 client.run(token)
