@@ -23,6 +23,7 @@ commandList = """
 !rkarma - Get an user's total karma on reddit
 !sourcecode - Get a GitHub link to the bot's source code
 !imgsearch - Google and post an image
+!deepfry - Google and deepfry an image
 """
 
 client = discord.Client()
@@ -71,6 +72,20 @@ async def on_message(message):
                 os.remove(path)
                 u.removeDownloads()
             except:
-                await message.channel.send("No such image was found :(")                 
-    
+                await message.channel.send("No such image was found :(")     
+                            
+    if message.content.startswith('!deepfry'):
+        if (len(message.content) == 9): await message.channel.send("Proper way to use is !deepfry [imgSearch]")
+        else:
+            try:
+                query = message.content[9:]
+                d.fryMe(g.googleImgSearch(query))
+                path = "Downloads/fried.jpeg"
+                file = discord.File(path, filename=path)            
+                await message.channel.send(file=file)         
+                u.removeDownloads()
+            except:
+                await message.channel.send("Image not found")
+        
+
 client.run(token)

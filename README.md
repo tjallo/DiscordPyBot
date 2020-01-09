@@ -5,9 +5,10 @@
 DiscordPyBot uses a number of Python libraries to work properly:
 
 * [PRAW](https://pypi.org/project/praw/)
-* [Wikipedia](https://pypi.org/project/wikipedia/)
+* [wikipedia](https://pypi.org/project/wikipedia/)
 * [Discord.py](https://pypi.org/project/discord.py/)
 * [google_images_download](https://pypi.org/project/google_images_download/)
+* [deeppyer](https://pypi.org/project/deeppyer/)
 
 ### Configuration
 
@@ -31,10 +32,10 @@ Or using your own preferred method. Just run main.py
  * !rkarma (redditUserName) - Get an user's total karma on reddit
  * !sourcecode - Get a GitHub link to the bot's source code
  * !imgsearch (query) - Google and post an image
+ * !deepfry (imgSearch) - Google and deepfry an image
 
 ### Planned Updates
  
- * Add a way to get the first google image for a search
  * Add a way to deepfry the image of the google search
  * More reddit API feature implementations
  * Add some form of music player (spotify and/or youtube)

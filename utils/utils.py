@@ -11,3 +11,6 @@ def removeDownloads():
                 shutil.rmtree(file_path)
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+def removeFried():
+    os.remove("downloads\\fried.jpeg")            
