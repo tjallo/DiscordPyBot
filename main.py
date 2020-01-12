@@ -88,9 +88,7 @@ async def on_message(message):
                 u.removeDownloads()
             except:
                 await message.channel.send("Image not found")
-<<<<<<< Updated upstream
         
-=======
 
     if message.content.startswith('!memegen'):
         splitThis = message.content[9:]
@@ -101,6 +99,5 @@ async def on_message(message):
         result = m.parseMemeList()
         for i in range(10):            
             await message.channel.send(f"Title: {result[1][i]}, ID: {result[0][i]}")
->>>>>>> Stashed changes
 
 client.run(token)
