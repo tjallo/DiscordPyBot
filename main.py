@@ -7,6 +7,7 @@ from credentials import token
 from utils import utils
 from meme_generator import memeGen
 from werkzeug.urls import url_fix
+from derp import mainDerp
 import discord
 import requests
 import shutil
@@ -19,6 +20,7 @@ g = google_api
 d = deepfry
 u = utils
 m = memeGen
+d = mainDerp
 
 commandList = """
 !help - See this message
@@ -31,6 +33,7 @@ commandList = """
 !deepfry - Google and deepfry an image
 !getmemelist - get top 10 meme's right now on imgflip with corrosponding id
 \"!memegen (id)-(text1)-(text2)\" - generates a meme using imgflip meme id
+!isgay - random gay generator
 """
 
 client = discord.Client()
@@ -113,6 +116,11 @@ async def on_message(message):
         result = m.parseMemeList()
         for i in range(10):            
             await message.channel.send(f"Title: {result[1][i]}, ID: {result[0][i]}")
+
+    if message.content.startswith("!isgay"):
+        output = d.isGay((message.content[7:]).lower())
+        await message.channel.send(f"{message.content[7:]} is {output}% gay!")
+
         
 
 client.run(token)

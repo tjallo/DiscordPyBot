@@ -17,6 +17,7 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [Discord.py](https://pypi.org/project/discord.py/)
 * [google_images_download](https://pypi.org/project/google_images_download/)
 * [deeppyer](https://pypi.org/project/deeppyer/)
+* [werkzeug](https://pypi.org/project/Werkzeug/)
 
 Use the provided ```installPip.bat ``` (located in installation files folder) script to install all the PIP libraries for you.
 
