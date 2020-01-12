@@ -43,3 +43,5 @@ def createMeme(memeID, text0, text1):
     response = requests.request("POST", url, headers=headers)
     
     return find_between(response.text, "{\"url\":\"", "\",\"pa")
+    #return find_between(response.text, "page_url\":\"", "\"")
+

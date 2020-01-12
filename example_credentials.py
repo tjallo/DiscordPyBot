@@ -10,3 +10,7 @@ client_secret='clientSecret Reddit API here'
 user_agent='for example: test by u/default'             
 username='your reddit username' 
 password='your reddit password'
+
+#ImgFlip Credentials
+imgUser = 'imgflipusername'
+imgPassword = 'imgflippassword'

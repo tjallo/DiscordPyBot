@@ -5,7 +5,9 @@ from deepfryer import deepfry
 from discord.ext import commands
 from credentials import token
 from utils import utils
+from meme_generator import memeGen
 import discord
+import urllib
 import os
 
 
@@ -14,6 +16,7 @@ w = wiki_api
 g = google_api
 d = deepfry
 u = utils
+m = memeGen
 
 commandList = """
 !help - See this message
@@ -91,13 +94,26 @@ async def on_message(message):
         
 
     if message.content.startswith('!memegen'):
-        splitThis = message.content[9:]
-        output = splitThis.split('-')
-        await message.channel.send(str(m.createMeme(output[0], output[1], output[2])))
+        if (len(message.content) == 8): await message.channel.send("Proper way to use is !memegen (id)-(text1)-(text2)")
+        else:
+            try:
+                splitThis = message.content[9:]
+                output = splitThis.split('-')
+                url = message.channel.send(str(m.createMeme(output[0], output[1], output[2])))
+
+                urllib.request.urlretrieve(url, 'downloads/temp.jpg')
+                path = "downloads/temp.jpg"
+                file = discord.File( path, filename="temp.jpg")
+                await message.channel.send(file=file)  
+                u.removeDownloads()
+            except:
+                await message.channel.send("Memegen failed!")
+
 
     if message.content.startswith("!getmemelist"):
         result = m.parseMemeList()
         for i in range(10):            
             await message.channel.send(f"Title: {result[1][i]}, ID: {result[0][i]}")
+        
 
 client.run(token)
