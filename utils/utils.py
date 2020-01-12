@@ -14,3 +14,6 @@ def removeDownloads():
 
 def removeFried():
     os.remove("downloads\\fried.jpeg")            
+
+def remove_at(i, s):
+    return s[:i] + s[i+1:]

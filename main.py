@@ -6,8 +6,10 @@ from discord.ext import commands
 from credentials import token
 from utils import utils
 from meme_generator import memeGen
+from werkzeug.urls import url_fix
 import discord
-import urllib
+import requests
+import shutil
 import os
 
 
@@ -99,15 +101,12 @@ async def on_message(message):
             try:
                 splitThis = message.content[9:]
                 output = splitThis.split('-')
-                url = message.channel.send(str(m.createMeme(output[0], output[1], output[2])))
-
-                urllib.request.urlretrieve(url, 'downloads/temp.jpg')
-                path = "downloads/temp.jpg"
-                file = discord.File( path, filename="temp.jpg")
-                await message.channel.send(file=file)  
-                u.removeDownloads()
+                url = url_fix((m.createMeme(output[0], output[1], output[2])).strip(os.sep))
+                url = u.remove_at(7, url)
+                url = u.remove_at(7, url)
+                await message.channel.send(url) 
             except:
-                await message.channel.send("Memegen failed!")
+               await message.channel.send("Memegen failed!")
 
 
     if message.content.startswith("!getmemelist"):
