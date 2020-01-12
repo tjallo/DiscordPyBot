@@ -1,3 +1,4 @@
 
 credentials.py
 *.pyc
+*.code-workspace

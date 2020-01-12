@@ -45,6 +45,8 @@ Or using your own preferred method. Just run main.py
  * !sourcecode - Get a GitHub link to the bot's source code
  * !imgsearch (query) - Google and post an image
  * !deepfry (imgSearch) - Google and deepfry an image
+ * !getmemelist - get top 10 meme's right now on imgflip with corrosponding id
+ * !memegen using (id)-(text1)-(text2) - generates a meme using imgflip meme id
 
 ### Planned Updates
  

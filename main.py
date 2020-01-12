@@ -24,6 +24,8 @@ commandList = """
 !sourcecode - Get a GitHub link to the bot's source code
 !imgsearch - Google and post an image
 !deepfry - Google and deepfry an image
+!getmemelist - get top 10 meme's right now on imgflip with corrosponding id
+\"!memegen (id)-(text1)-(text2)\" - generates a meme using imgflip meme id
 """
 
 client = discord.Client()
@@ -86,6 +88,19 @@ async def on_message(message):
                 u.removeDownloads()
             except:
                 await message.channel.send("Image not found")
+<<<<<<< Updated upstream
         
+=======
+
+    if message.content.startswith('!memegen'):
+        splitThis = message.content[9:]
+        output = splitThis.split('-')
+        await message.channel.send(str(m.createMeme(output[0], output[1], output[2])))
+
+    if message.content.startswith("!getmemelist"):
+        result = m.parseMemeList()
+        for i in range(10):            
+            await message.channel.send(f"Title: {result[1][i]}, ID: {result[0][i]}")
+>>>>>>> Stashed changes
 
 client.run(token)
