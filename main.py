@@ -20,7 +20,7 @@ g = google_api
 d = deepfry
 u = utils
 m = memeGen
-d = mainDerp
+h = mainDerp
 
 commandList = """
 !help - See this message
@@ -90,7 +90,7 @@ async def on_message(message):
             try:
                 query = message.content[9:]
                 d.fryMe(g.googleImgSearch(query))
-                path = "Downloads/fried.jpeg"
+                path = "downloads/fried.jpeg"
                 file = discord.File(path, filename=path[-8:])            
                 await message.channel.send(file=file)         
                 u.removeDownloads()
@@ -118,7 +118,7 @@ async def on_message(message):
             await message.channel.send(f"Title: {result[1][i]}, ID: {result[0][i]}")
 
     if message.content.startswith("!isgay"):
-        output = d.isGay((message.content[7:]).lower())
+        output = h.isGay((message.content[7:]).lower())
         await message.channel.send(f"{message.content[7:]} is {output}% gay!")
 
         

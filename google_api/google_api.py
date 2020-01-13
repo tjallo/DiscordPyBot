@@ -6,7 +6,7 @@ query = ""
 #Imagesearcher
 def googleImgSearcher(query):
     response = g.googleimagesdownload()
-    args = {"keywords": query, "limit": 10, "print_urls": True}    
+    args = {"keywords": query, "limit": 4, "print_urls": True}    
     payload = str(response.download(args))
     arr = []
     arr = (find_between(payload, "[\'", "\']").split(","))
