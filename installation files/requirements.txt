@@ -4,3 +4,4 @@ google_images_download
 deeppyer
 discord.py
 werkzeug
+PyNaCl

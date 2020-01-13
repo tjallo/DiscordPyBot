@@ -8,6 +8,7 @@ from utils import utils
 from meme_generator import memeGen
 from werkzeug.urls import url_fix
 from derp import mainDerp
+import asyncio
 import discord
 import requests
 import shutil
@@ -21,7 +22,6 @@ d = deepfry
 u = utils
 m = memeGen
 h = mainDerp
-
 
 commandList = """
 !help - See this message
@@ -41,7 +41,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('We have logged in as {0.user}'.format(client))    
 
 @client.event
 async def on_message(message):
@@ -126,6 +126,11 @@ async def on_message(message):
         output = h.isGay((message.content[7:]).lower())
         await message.channel.send(f"{message.content[7:]} is {output}% gay!")
 
+    if "real man" in message.content.lower():
+        channel = message.author.voice.channel
+        vc = await channel.connect()        
+        vc.play(discord.PCMAudio())
         
+        await vc.disconnect()
 
 client.run(token)
