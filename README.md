@@ -51,7 +51,7 @@ Or using your own preferred method. Just run main.py
 
 ### Planned Updates
  
- * Add a way to deepfry the image of the google search
  * More reddit API feature implementations
  * Add some form of music player (spotify and/or youtube)
+ * Create a Docker container version of the app
  * ...
