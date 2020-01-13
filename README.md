@@ -1,7 +1,7 @@
 # DiscordPyBot
 
 ## Disclaimer
- At this moment in time, the bot only fully works in Windows 10.
+ At this moment in time, the bot only fully works on Ubuntu.
 
  This is because it has been developed and tested on this platform.
  
@@ -22,6 +22,8 @@ DiscordPyBot uses a number of Python libraries to work properly:
 Use the provided ```installPip.bat ``` (located in installation files folder) script to install all the PIP libraries for you.
 
 ###  Installation and Configuration
+
+Make sure that you have 'deeppyer' in your /bin/ folder to so you can run it from the command line (not in /home/.local/bin)
 
 Install all required pip files by running ```installPip.bat ``` which is located in the installation files folder.
 
