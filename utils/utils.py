@@ -1,6 +1,5 @@
 import os, shutil
-
-#OLD WINDOWS REMOVER
+#Oldwindows remover
 #def removeDownloads():
 #    folder = 'Downloads/'
 #    for filename in os.listdir(folder):
@@ -13,7 +12,6 @@ import os, shutil
 #        except Exception as e:
 #            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
-#NEW LINUX REMOVER
 def removeDownloads():
     os.system('/bin/bash -c "rm -r -f downloads"')
     os.system('/bin/bash -c "mkdir downloads"')

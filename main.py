@@ -22,6 +22,7 @@ u = utils
 m = memeGen
 h = mainDerp
 
+
 commandList = """
 !help - See this message
 !ping - Pong!
@@ -93,7 +94,7 @@ async def on_message(message):
                 path = "downloads/fried.jpeg"
                 file = discord.File(path, filename=path[-8:])            
                 await message.channel.send(file=file)         
-                u.removeDownloads()
+                #u.removeDownloads()
             except:
                 await message.channel.send("Image not found")
         
