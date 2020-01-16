@@ -20,3 +20,9 @@ def removeFried():
     os.remove("downloads\\fried.jpeg")
 def remove_at(i, s):
     return s[:i] + s[i+1:]
+
+def file_len(fname):
+    with open(fname) as f:
+        for i, l in enumerate(f):
+            pass
+    return i + 1

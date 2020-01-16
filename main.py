@@ -13,6 +13,7 @@ import discord
 import requests
 import shutil
 import os
+import random
 
 
 r = reddit_main
@@ -35,6 +36,7 @@ commandList = """
 !getmemelist - get top 10 meme's right now on imgflip with corrosponding id
 \"!memegen (id)-(text1)-(text2)\" - generates a meme using imgflip meme id
 !isgay - random gay generator
+!destroylibtard - send an inspirational quote
 """
 
 client = discord.Client()
@@ -126,11 +128,23 @@ async def on_message(message):
         output = h.isGay((message.content[7:]).lower())
         await message.channel.send(f"{message.content[7:]} is {output}% gay!")
 
-    if "real man" in message.content.lower():
-        channel = message.author.voice.channel
-        vc = await channel.connect()        
-        vc.play(discord.PCMAudio())
+#    if "real man" in message.content.lower():
+#        channel = message.author.voice.channel
+#        vc = await channel.connect()        
+#        vc.play(discord.PCMAudio(pipe=True))
+#        
+#        await vc.disconnect()
+
+    if message.content.startswith("!destroylibtard"):
+        fileN = "media//offensive.txt"
+        length = u.file_len(fileN) -1
+        pick = random.randint(0,length)     
+        f=open(fileN)
+        lines=f.readlines()
+        await message.channel.send(lines[pick])
         
-        await vc.disconnect()
+            
+
+
 
 client.run(token)
