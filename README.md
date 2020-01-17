@@ -48,7 +48,7 @@ Or using your own preferred method. Just run main.py
  * !sourcecode - Get a GitHub link to the bot's source code
  * !imgsearch (query) - Google and post an image
  * !deepfry (imgSearch) - Google and deepfry an image
- * !getmemelist - get top 10 meme's right now on imgflip with corrosponding id
+ * !getmemelist - get top meme's right now on imgflip with corrosponding id, also sends a link for the list with the top 100 memes right now
  * !memegen using (id)-(text1)-(text2) - generates a meme using imgflip meme id
  * !destroylibtard - send an inspirational quote
 
