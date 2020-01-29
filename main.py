@@ -150,5 +150,5 @@ async def on_message(message):
         u.addLineToFile(f'\n{inText} ', 'media/offensive.txt')
         await message.channel.send(f'Quote : \"{inText}\", was added to the inspirational quotes file.')
 
-    u.addLineToFile(f'\n{inText} ', 'media/log.txt')
+    u.addLineToFile(f'\n{message.content} ', 'media/log.txt')
 client.run(token)
