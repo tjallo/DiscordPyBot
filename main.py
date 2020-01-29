@@ -147,7 +147,7 @@ async def on_message(message):
             
     if message.content.startswith("!addquote"):
         inText = message.content[10:]
-        u.addLineToFile(inText, 'media/offensive.txt')
+        u.addLineToFile(f'{inText} \\n', 'media/offensive.txt')
         await message.channel.send(f'Quote : \"{inText}\", was added to the inspirational quotes file.')
 
 
