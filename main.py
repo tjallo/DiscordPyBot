@@ -37,6 +37,7 @@ commandList = """
 \"!memegen (id)-(text1)-(text2)\" - generates a meme using imgflip meme id
 !isgay - random gay generator
 !destroylibtard - send an inspirational quote
+!addquote - add quote to the inspirational quotes list.
 """
 
 client = discord.Client()
@@ -144,7 +145,10 @@ async def on_message(message):
         await message.channel.send(lines[pick])
         
             
-
+    if message.content.startswith("!addquote"):
+        inText = message.content[10:]
+        u.addLineToFile(inText, 'media/offensive.txt')
+        await message.channel.send(f'Quote : \"{inText}\", was added to the inspirational quotes file.')
 
 
 client.run(token)

@@ -26,3 +26,7 @@ def file_len(fname):
         for i, l in enumerate(f):
             pass
     return i + 1
+
+def addLineToFile(line, fileName):
+    with open(fileName, "a") as myfile:
+        myfile.write(line)

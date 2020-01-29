@@ -51,6 +51,7 @@ Or using your own preferred method. Just run main.py
  * !getmemelist - get top 10 meme's right now on imgflip with corrosponding id
  * !memegen using (id)-(text1)-(text2) - generates a meme using imgflip meme id
  * !destroylibtard - send an inspirational quote
+ * !addquote - add quote to the inspirational quotes list.
 
 ### Planned Updates
  
