@@ -8,6 +8,7 @@ from utils import utils
 from meme_generator import memeGen
 from werkzeug.urls import url_fix
 from derp import mainDerp
+from lastfm_api import last
 import asyncio
 import discord
 import requests
@@ -23,6 +24,7 @@ d = deepfry
 u = utils
 m = memeGen
 h = mainDerp
+l = last
 
 commandList = """
 !help - See this message
@@ -38,6 +40,7 @@ commandList = """
 !isgay - random gay generator
 !destroylibtard - send an inspirational quote
 !addquote - add quote to the inspirational quotes list.
+!gettoptracks (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 """
 
 client = discord.Client()
@@ -154,6 +157,14 @@ async def on_message(message):
         inText = message.content[10:]
         u.addLineToFile(f'\n{inText} ', 'media/offensive.txt')
         await message.channel.send(f'Quote : \"{inText}\", was added to the inspirational quotes file.')
+
+    if message.content.startswith('!gettoptracks'):
+        splitThis = message.content[14:]
+        output = splitThis.split('-')
+        artists, tracks = l.getTopTracks(output[0], output[1])
+
+        for i in range(len(artists)):
+            await message.channel.send(f"{tracks[i]} - {artists[i]}")
 
     
 client.run(token)
