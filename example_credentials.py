@@ -14,3 +14,6 @@ password='your reddit password'
 #ImgFlip Credentials
 imgUser = 'imgflipusername'
 imgPassword = 'imgflippassword'
+
+#LastFM API credentials
+lastApiKey = 'apikey'

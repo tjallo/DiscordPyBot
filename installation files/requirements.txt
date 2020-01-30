@@ -5,3 +5,4 @@ deeppyer
 discord.py
 werkzeug
 PyNaCl
+dataclasses
