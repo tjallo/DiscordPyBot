@@ -1,5 +1,5 @@
 import requests
-import LastFMTopTracksprettyJSON
+from lastfm_api import LastFMTopTracksprettyJSON
 import json
 import credentials
 
