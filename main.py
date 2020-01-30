@@ -9,6 +9,7 @@ from meme_generator import memeGen
 from werkzeug.urls import url_fix
 from derp import mainDerp
 from lastfm_api import last
+from lastfm_api import LastFMTopTracksprettyJSON
 import asyncio
 import discord
 import requests
