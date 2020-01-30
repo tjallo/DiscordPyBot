@@ -20,15 +20,17 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [werkzeug](https://pypi.org/project/Werkzeug/)
 * [PyNaCl](https://pypi.org/project/PyNaCl/)
 * [dataclasses](https://pypi.org/project/dataclasses/)
-Use the provided ```installPip.bat ``` (located in installation files folder) script to install all the PIP libraries for you.
+
+Use the provided requirements.txt (located in installation files folder) script to install all the PIP libraries for you.
+Using ```pip install -m requirements.txt```
 
 ###  Installation and Configuration
 
 Make sure that you have 'deeppyer' in your /bin/ folder to so you can run it from the command line (not in /home/.local/bin)
 
-Install all required pip files by running ```installPip.bat ``` which is located in the installation files folder.
+Install all required pip files by running ```pip install -m requirements.txt``` the requirements are located in the installation files folder.
 
- The only file that needs configuration right now is the "credentials.py"
+ The only file that needs configuration is the "credentials.py"
  Edit the "example_crediantials.py" with your own credentials, and rename the file to "credentials.py"
 
 ### Running the Bot
@@ -57,6 +59,7 @@ Or using your own preferred method. Just run main.py
 
 ### Planned Updates
  
+ * Rework the readme to be more readable
  * More reddit API feature implementations
  * Add some form of music player (spotify and/or youtube)
  * Create a Docker container version of the app
