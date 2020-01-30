@@ -66,7 +66,9 @@ async def on_message(message):
     if message.content.startswith('!imgwiki'):
         if (len(message.content) == 8): await message.channel.send("Proper way to use is !imgwiki [wiki article]")
         else:
-          await message.channel.send(w.get_image(message.content[9:]))   
+            await message.channel.send("Processing...")
+            await message.channel.send(w.get_image(message.content[9:]))
+             
 
     if message.content.startswith('!rkarma'):
         if (len(message.content) == 7): await message.channel.send("Proper way to use is !rkarma [reddit user name]")
@@ -79,6 +81,7 @@ async def on_message(message):
         if (len(message.content) == 10): await message.channel.send("Proper way to use is !imgsearch [query]")
         else:
             try:
+                await message.channel.send("Processing...")
                 query = message.content[11:]
                 path = g.googleImgSearch(query)
                 file = discord.File(path, filename=path[-5:])            
@@ -92,6 +95,7 @@ async def on_message(message):
         if (len(message.content) == 9): await message.channel.send("Proper way to use is !deepfry [imgSearch]")
         else:
             try:
+                await message.channel.send("Processing...")
                 query = message.content[9:]
                 d.fryMe(g.googleImgSearch(query))
                 path = "downloads/fried.jpeg"
@@ -106,6 +110,7 @@ async def on_message(message):
         if (len(message.content) == 8): await message.channel.send("Proper way to use is !memegen (id)-(text1)-(text2)")
         else:
             try:
+                await message.channel.send("Processing...")
                 splitThis = message.content[9:]
                 output = splitThis.split('-')
                 url = url_fix((m.createMeme(output[0], output[1], output[2])).strip(os.sep))
