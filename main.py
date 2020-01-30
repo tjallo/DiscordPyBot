@@ -160,12 +160,16 @@ async def on_message(message):
         await message.channel.send(f'Quote : \"{inText}\", was added to the inspirational quotes file.')
 
     if message.content.startswith('!gettoptracks'):
-        splitThis = message.content[14:]
-        output = splitThis.split('-')
-        artists, tracks = l.getTopTracks(output[0], output[1])
+        await message.channel.send("Processing...")
+        try:
+            splitThis = message.content[14:]
+            output = splitThis.split('-')
+            artists, tracks = l.getTopTracks(output[0], output[1])
 
-        for i in range(len(artists)):
-            await message.channel.send(f"{tracks[i]} - {artists[i]}")
+            for i in range(len(artists)):
+                await message.channel.send(f"{tracks[i]} - {artists[i]}")
+        except:
+            await message.channel.send("Error!")
 
     
 client.run(token)
