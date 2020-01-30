@@ -29,7 +29,4 @@ def getTopTracks(user, period):
         i += 1
 
 
-    return artists, tracks
-   
-print(getTopTracks('tjallo', 'alltime'))
-
+    return artists, tracks   
