@@ -1,12 +1,12 @@
 # DiscordPyBot
 
 ## Disclaimer
- At this moment in time, the bot only fully works on Ubuntu.
+ At this moment in time, the bot was/is only tested on Ubuntu.
 
- This is because it has been developed and tested on this platform.
+ This is because it has been developed on this platform.
  
- I am in the works of making a Ubuntu compatible version as we speak, but the windows version has priority.
- (Note; most functions do work on ubuntu, but they can spit unneccesairy errors, also the tmp file system isnt working on Ubuntu)
+ I am in the works of making a Windows compatible version as we speak, but the windows version has priority.
+ (Note; most functions do work on Windows, but they can spit unneccesairy errors, also the tmp file system isnt working on Windows)
 
 ### Tech
 
@@ -18,7 +18,8 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [google_images_download](https://pypi.org/project/google_images_download/)
 * [deeppyer](https://pypi.org/project/deeppyer/)
 * [werkzeug](https://pypi.org/project/Werkzeug/)
-
+* [PyNaCl](https://pypi.org/project/PyNaCl/)
+* [dataclasses](https://pypi.org/project/dataclasses/)
 Use the provided ```installPip.bat ``` (located in installation files folder) script to install all the PIP libraries for you.
 
 ###  Installation and Configuration
@@ -49,9 +50,10 @@ Or using your own preferred method. Just run main.py
  * !imgsearch (query) - Google and post an image
  * !deepfry (imgSearch) - Google and deepfry an image
  * !getmemelist - get top meme's right now on imgflip with corrosponding id, also sends a link for the list with the top 100 memes right now
- * !memegen using (id)-(text1)-(text2) - generates a meme using imgflip meme id
+ * !memegen (id)-(text1)-(text2) - generates a meme using imgflip meme id
  * !destroylibtard - send an inspirational quote
- * !addquote - add quote to the inspirational quotes list.
+ * !addquote (quote) - add quote to the inspirational quotes list.
+ * !gettoptracks (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 
 ### Planned Updates
  
