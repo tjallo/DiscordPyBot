@@ -123,9 +123,10 @@ async def on_message(message):
     if message.content.startswith("!getmemelist"):
         result = m.parseMemeList()
         await message.channel.send("This is the start of the meme list, please wait for the ending message:")
+        sendstring = ""
         for i in range(10):            
-            sendString += f"Title: {result[1][i]}, ID: {result[0][i]} \n"
-        await message.channel.send()
+            sendString += f"Title: {result[1][i]}, ID: {result[0][i]} \n "
+        await message.channel.send(sendString)
         link = "https://api.imgflip.com/popular_meme_ids"
         await message.channel.send(f"For the current top 100 memes check: {link}")
         await message.channel.send("This is the end of the meme list")
