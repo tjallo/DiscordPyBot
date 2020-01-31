@@ -165,11 +165,12 @@ async def on_message(message):
             await message.channel.send("Error!")
 
     if message.content.startswith('!getplaycount'):
-        await message.channel.send("Processing")    
-        userName = message.content[14:]
-        output = l.getPlaycount(userName)
-        await message.channel.send(f"{userName}, has a playcount of {output}.")
-        #except:
-            #await message.channel.send("Error!")
+        try:
+            await message.channel.send("Processing")    
+            userName = message.content[14:]
+            output = l.getPlaycount(userName)
+            await message.channel.send(f"{userName}, has a playcount of {output}.")
+        except:
+            await message.channel.send("Error!")
 
 client.run(token)
