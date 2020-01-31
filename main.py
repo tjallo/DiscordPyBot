@@ -1,14 +1,14 @@
-from reddit_api import reddit_main
-from wiki_api import wiki_api
-from google_api import google_api
-from deepfryer import deepfry
+from reddit_api import reddit_main as r
+from wiki_api import wiki_api as w
+from google_api import google_api as g
+from deepfryer import deepfry as d
 from discord.ext import commands
 from credentials import token
-from utils import utils
-from meme_generator import memeGen
+from utils import utils as u
+from meme_generator import memeGen as m
 from werkzeug.urls import url_fix
-from derp import mainDerp
-from lastfm_api import last
+from derp import mainDerp as h
+from lastfm_api import last as l
 from lastfm_api import LastFMTopTracksprettyJSON
 import asyncio
 import discord
@@ -17,15 +17,6 @@ import shutil
 import os
 import random
 
-
-r = reddit_main
-w = wiki_api
-g = google_api
-d = deepfry
-u = utils
-m = memeGen
-h = mainDerp
-l = last
 
 commandList = """
 !help - See this message
