@@ -11,6 +11,7 @@ from derp import mainDerp as h
 from lastfm_api import last as l
 from lastfm_api import LastFMTopTracksprettyJSON
 from lastfm_api import getInfoPretty
+from lastfm_api import getTopArtistsPretty
 import asyncio
 import discord
 import requests
@@ -35,6 +36,7 @@ commandList = """
 !addquote - add quote to the inspirational quotes list.
 !gettoptracks (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 !getplaycount (user) - Get playcount of user on LastFM
+!gettopartists (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 """
 
 client = discord.Client()
@@ -172,5 +174,14 @@ async def on_message(message):
             await message.channel.send(f"{userName}, has a playcount of {output}.")
         except:
             await message.channel.send("Error!")
+
+    if message.content.startswith('!gettopartists'):
+        result = message.content[15:]
+        output = result.split('-')
+        await message.channel.send("Processing...")
+        artists = l.getTopArtists(output[0], output[1])
+        for artist in artists:
+            await message.channel.send(artist)
+        
 
 client.run(token)

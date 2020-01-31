@@ -1,6 +1,7 @@
 import requests
 from lastfm_api import LastFMTopTracksprettyJSON
 from lastfm_api import getInfoPretty
+from lastfm_api import getTopArtistsPretty
 import json
 import credentials
 
@@ -36,3 +37,14 @@ def getPlaycount(user):
     response = requests.request("GET", url, headers=headers, data = payload)
     result = getInfoPretty.welcome_from_dict(json.loads(response.text))
     return result.user.playcount
+
+def getTopArtists(user, period):
+    url = f"http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&user={user}&api_key=06199ca5111af01e6844cabe763ebf87&format=json&period={period}&page=1&limit=5"
+    payload = {}
+    headers= {}
+    response = requests.request("GET", url, headers=headers, data = payload)
+    result = getTopArtistsPretty.get_top_artists_from_dict(json.loads(response.text))
+    artists = []
+    for artist in result.artist:
+        artists.append(artist.name)
+    return artists
