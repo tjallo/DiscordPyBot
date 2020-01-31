@@ -192,5 +192,10 @@ async def on_message(message):
         except:
             await message.channel.send("ERROR!")
         
+    if message.content.startswith('!drink'):
+        inputInt = int(message.content[7:])
+        drinkThis = h.drinkGame(inputInt)
+        author = message.author
+        await message.channel.send(f"{author}, has to drink {drinkThis} sips!")
 
 client.run(token)
