@@ -34,5 +34,5 @@ def getPlaycount(user):
     payload = {}
     headers= {}
     response = requests.request("GET", url, headers=headers, data = payload)
-    result = getInfoPretty.last_fm_from_dict(json.loads(response.text))
+    result = getInfoPretty.welcome_from_dict(json.loads(response.text))
     return result.user.playcount
