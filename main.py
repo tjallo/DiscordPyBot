@@ -197,6 +197,6 @@ async def on_message(message):
         inputInt = int(message.content[7:])
         drinkThis, wasNumber = h.drinkGame(inputInt)
         author = message.author
-        await message.channel.send(f"The number was {wasNumber} so\n{author}, has to drink {drinkThis} sips!")
+        await message.channel.send(f"The number was {wasNumber}, so {author} has to drink {drinkThis} sips!")
 
 client.run(token)
