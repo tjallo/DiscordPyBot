@@ -176,12 +176,16 @@ async def on_message(message):
             await message.channel.send("Error!")
 
     if message.content.startswith('!gettopartists'):
-        result = message.content[15:]
-        output = result.split('-')
-        await message.channel.send("Processing...")
-        artists = l.getTopArtists(output[0], output[1])
-        for artist in artists:
-            await message.channel.send(artist)
+        try:
+            result = message.content[15:]
+            output = result.split('-')
+            await message.channel.send("Processing...")
+            artists = l.getTopArtists(output[0], output[1])
+            await message.channel.send(f"{output[0]}'s Favourite artists in last {output[1]} period where:")
+            for artist in artists:
+                await message.channel.send(artist)
+        except:
+            await message.channel.send("ERROR!")
         
 
 client.run(token)
