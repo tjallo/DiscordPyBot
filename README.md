@@ -21,6 +21,8 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [PyNaCl](https://pypi.org/project/PyNaCl/)
 * [dataclasses](https://pypi.org/project/dataclasses/)
 
+Special thanks to [quicktype.io](https://app.quicktype.io/), for rapid code generation for JSON to classes.
+
 Use the provided requirements.txt (located in installation files folder) script to install all the PIP libraries for you.
 Using ```pip install -m requirements.txt```
 
