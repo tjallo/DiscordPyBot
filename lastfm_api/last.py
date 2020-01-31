@@ -45,6 +45,6 @@ def getTopArtists(user, period):
     response = requests.request("GET", url, headers=headers, data = payload)
     result = getTopArtistsPretty.get_top_artists_from_dict(json.loads(response.text))
     artists = []
-    for artist in result.artist:
+    for artist in result.topartists.artist:
         artists.append(artist.name)
     return artists
