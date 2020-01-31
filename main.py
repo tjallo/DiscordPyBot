@@ -37,6 +37,7 @@ commandList = """
 !gettoptracks (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 !getplaycount (user) - Get playcount of user on LastFM
 !gettopartists (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
+!drink (integer) - play a drinking game, drink the difference
 """
 
 client = discord.Client()
@@ -194,8 +195,8 @@ async def on_message(message):
         
     if message.content.startswith('!drink'):
         inputInt = int(message.content[7:])
-        drinkThis = h.drinkGame(inputInt)
+        drinkThis, wasNumber = h.drinkGame(inputInt)
         author = message.author
-        await message.channel.send(f"{author}, has to drink {drinkThis} sips!")
+        await message.channel.send(f"The number was {wasNumber} so\n{author}, has to drink {drinkThis} sips!")
 
 client.run(token)
