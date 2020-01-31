@@ -197,7 +197,7 @@ async def on_message(message):
         try:
             inputInt = int(message.content[7:])
             drinkThis, wasNumber = h.drinkGame(inputInt)
-            author = message.author
+            author = message.author[:5]
             await message.channel.send(f"The number was {wasNumber}, so {author} has to drink {drinkThis} sips!")
         except:
             await message.channel.send("Enter a valid number!")
