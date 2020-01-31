@@ -182,8 +182,10 @@ async def on_message(message):
             await message.channel.send("Processing...")
             artists = l.getTopArtists(output[0], output[1])
             await message.channel.send(f"{output[0]}'s Favourite artists in last {output[1]} period where:")
+            sendString = ""
             for artist in artists:
-                await message.channel.send(artist)
+                sendString += f"{artist} \n"
+            await message.channel.send(sendString)    
         except:
             await message.channel.send("ERROR!")
         
