@@ -5,5 +5,5 @@ def isGay(name):
     return random.randint(0,100)
 
 def drinkGame(inNumber):
-    number = round(random.random() * 10)
+    number = round(random.random() * 11)
     return abs(number - inNumber), number
