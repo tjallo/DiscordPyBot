@@ -6,7 +6,7 @@ import credentials
 apiKey = credentials.lastApiKey
 
 
-#apiKey = '06199ca5111af01e6844cabe763ebf87'
+
 
 
 def getTopTracks(user, period):
@@ -30,3 +30,5 @@ def getTopTracks(user, period):
 
 
     return artists, tracks   
+
+def getPlaycount(user):
