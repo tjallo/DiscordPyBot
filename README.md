@@ -58,6 +58,8 @@ Or using your own preferred method. Just run main.py
  * !destroylibtard - send an inspirational quote
  * !addquote (quote) - add quote to the inspirational quotes list.
  * !gettoptracks (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
+ * !getplaycount (user) - Get playcount of user on LastFM
+ * !gettopartists (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 
 ### Planned Updates
  
