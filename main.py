@@ -164,6 +164,7 @@ async def on_message(message):
             output = splitThis.split('-')
             artists, tracks = l.getTopTracks(output[0], output[1])
             sendString = ""
+            await message.channel.send(f"{output[0]}'s Favourite tracks in last {output[1]} period where:")
             for i in range(len(artists)):
                 sendString += f"{tracks[i]} - {artists[i]} \n"
             await message.channel.send(sendString)
