@@ -168,7 +168,7 @@ async def on_message(message):
                 sendString += f"{tracks[i]} - {artists[i]} \n"
             await message.channel.send(sendString)
         except:
-            await message.channel.send("Error!")
+            await message.channel.send("Error! Did you use the right syntax?")
 
     if message.content.startswith('!getplaycount'):
         try:
@@ -177,7 +177,7 @@ async def on_message(message):
             output = l.getPlaycount(userName)
             await message.channel.send(f"{userName}, has a playcount of {output}.")
         except:
-            await message.channel.send("Error!")
+            await message.channel.send("Error! Did you use the right syntax?")
 
     if message.content.startswith('!gettopartists'):
         try:
@@ -191,7 +191,7 @@ async def on_message(message):
                 sendString += f"{artist} \n"
             await message.channel.send(sendString)    
         except:
-            await message.channel.send("ERROR!")
+            await message.channel.send("ERROR! Did you use the right syntax?")
         
     if message.content.startswith('!drink'):
         try:
