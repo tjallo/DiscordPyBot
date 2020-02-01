@@ -159,16 +159,16 @@ async def on_message(message):
 
     if message.content.startswith('!gettoptracks'):
         await message.channel.send("Processing...")
-        try:
-            splitThis = message.content[14:]
-            output = splitThis.split('-')
-            artists, tracks = l.getTopTracks(output[0], output[1])
-            sendString = ""
-            for i in range(len(artists)):
-                sendString += f"{tracks[i]} - {artists[i]} \n"
-            await message.channel.send(sendString)
-        except:
-            await message.channel.send("Error!")
+        #try:
+        splitThis = message.content[14:]
+        output = splitThis.split('-')
+        artists, tracks = l.getTopTracks(output[0], output[1])
+        sendString = ""
+        for i in range(len(artists)):
+            sendString += f"{tracks[i]} - {artists[i]} \n"
+        await message.channel.send(sendString)
+        #except:
+            #await message.channel.send("Error!")
 
     if message.content.startswith('!getplaycount'):
         try:
@@ -180,18 +180,18 @@ async def on_message(message):
             await message.channel.send("Error!")
 
     if message.content.startswith('!gettopartists'):
-        try:
-            result = message.content[15:]
-            output = result.split('-')
-            await message.channel.send("Processing...")
-            artists = l.getTopArtists(output[0], output[1])
-            await message.channel.send(f"{output[0]}'s Favourite artists in last {output[1]} period where:")
-            sendString = ""
-            for artist in artists:
-                sendString += f"{artist} \n"
-            await message.channel.send(sendString)    
-        except:
-            await message.channel.send("ERROR!")
+        #try:
+        result = message.content[15:]
+        output = result.split('-')
+        await message.channel.send("Processing...")
+        artists = l.getTopArtists(output[0], output[1])
+        await message.channel.send(f"{output[0]}'s Favourite artists in last {output[1]} period where:")
+        sendString = ""
+        for artist in artists:
+            sendString += f"{artist} \n"
+        await message.channel.send(sendString)    
+        #except:
+            #await message.channel.send("ERROR!")
         
     if message.content.startswith('!drink'):
         try:
