@@ -5,7 +5,7 @@
 
  This is because it has been developed on this platform.
  
- I am in the works of making a Windows compatible version as we speak, but the windows version has priority.
+ I am in the works of making a Windows compatible version as we speak, but the Ubuntu version has priority.
  (Note; most functions do work on Windows, but they can spit unneccesairy errors, also the tmp file system isnt working on Windows)
 
 ### Tech
