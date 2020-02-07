@@ -6,3 +6,5 @@ discord.py
 werkzeug
 PyNaCl
 dataclasses
+flask
+flask_sqlalchemy

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Quote Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    
+        <br><br>
+    <h1 style="text-align: center">Quote Master</h1>
+    
+    <h4 style="text-align: center">Add a quote below!</h4>    
+
+    <div class ="quotes" style="text-align: center">
+        <button onclick="window.location.href = '/quotes';">See all current quotes</button>
+        <br><br>
+        <button  onclick="window.location.href = '/';">Homepage</button>
+    </div>
+    <br>
+    <div class="form">
+        <form action="/addquote/" method="POST" style="text-align: center">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add quote">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
