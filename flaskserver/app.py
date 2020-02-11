@@ -20,7 +20,7 @@ def currentQuotes():
     os.system('cp ../media/offensive.txt .')
     with open('offensive.txt') as my_file:
         textList = my_file.readlines()
-    os.sytem('rm offensive.txt')
+    os.system('rm offensive.txt')
     
     return render_template("currentQuotes.html", data=textList)
 
