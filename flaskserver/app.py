@@ -20,6 +20,7 @@ def currentQuotes():
     os.system('cp ../media/offensive.txt .')
     with open('offensive.txt') as my_file:
         textList = my_file.readlines()
+    os.sytem('rm offensive.txt')
     
     return render_template("currentQuotes.html", data=textList)
 
@@ -30,6 +31,7 @@ def addQuotes():
         new_quote = request.form['content']
         u.addLineToFile(f'\n{new_quote} ', 'offensive.txt')
         os.system('cp offensive.txt ../media/')
+        os.sytem('rm offensive.txt')
         return render_template('addQuotes.html')
 
     else:        
