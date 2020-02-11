@@ -31,7 +31,7 @@ def addQuotes():
         new_quote = request.form['content']
         u.addLineToFile(f'\n{new_quote} ', 'offensive.txt')
         os.system('cp offensive.txt ../media/')
-        os.sytem('rm offensive.txt')
+        os.system('rm offensive.txt')
         return render_template('addQuotes.html')
 
     else:        
