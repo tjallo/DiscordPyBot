@@ -94,7 +94,7 @@ async def on_message(message):
     if message.content.startswith('!deepfry'):
         if (len(message.content) == 9): await message.channel.send("Proper way to use is !deepfry [imgSearch]")
         else:
-            #try:
+            try:
                 await message.channel.send("Processing...")
                 query = message.content[9:]
                 d.fryMe(g.googleImgSearch(query))
@@ -102,8 +102,8 @@ async def on_message(message):
                 file = discord.File(path, filename=path[-8:])            
                 await message.channel.send(file=file)         
                 #u.removeDownloads()
-            #except:
-                #await message.channel.send("Image not found")
+            except:
+                await message.channel.send("Image not found")
         
 
     if message.content.startswith('!memegen'):
