@@ -1,5 +1,5 @@
 #Initzializing
-from google_images_download import google_images_download
+from googleImgDownload import google_images_download
 g = google_images_download
 query = ""
 
@@ -26,3 +26,6 @@ def googleImgSearch(query):
     for i in arr:
         if not ("svg" in str(i)):
             return i.strip(' "\'\t\r\n')
+
+
+print(googleImgSearch("Hallo Daar"))
