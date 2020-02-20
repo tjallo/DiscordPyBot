@@ -24,7 +24,7 @@ DiscordPyBot uses a number of Python libraries to work properly:
 * [PRAW](https://pypi.org/project/praw/)
 * [wikipedia](https://pypi.org/project/wikipedia/)
 * [Discord.py](https://pypi.org/project/discord.py/)
-* [google_images_download](https://pypi.org/project/google_images_download/)
+* [google_images_download](https://github.com/hardikvasa/google-images-download) (Fixed Version from Hardikvasa)
 * [deeppyer](https://pypi.org/project/deeppyer/)
 * [werkzeug](https://pypi.org/project/Werkzeug/)
 * [PyNaCl](https://pypi.org/project/PyNaCl/)
