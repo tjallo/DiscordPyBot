@@ -5,6 +5,8 @@ from lastfm_api import getTopArtistsPretty
 import json
 import credentials
 
+
+
 apiKey = credentials.lastApiKey
 
 
@@ -39,7 +41,7 @@ def getPlaycount(user):
     return result.user.playcount
 
 def getTopArtists(user, period):
-    url = f"http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&user={user}&api_key=06199ca5111af01e6844cabe763ebf87&format=json&period={period}&page=1&limit=5"
+    url = f"http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&user={user}&api_key={apiKey}&format=json&period={period}&page=1&limit=5"
     payload = {}
     headers= {}
     response = requests.request("GET", url, headers=headers, data = payload)
@@ -48,3 +50,14 @@ def getTopArtists(user, period):
     for artist in result.topartists.artist:
         artists.append(artist.name)
     return artists
+
+def getWeeklyCount(currentEpoch, fromEpoch, user):
+
+    url = f"http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=tjallo&api_key=06199ca5111af01e6844cabe763ebf87&format=json&page=1&from={fromEpoch}&to={currentEpoch}"
+
+    payload = {}
+    headers= {}
+
+    response = requests.request("GET", url, headers=headers, data = payload)
+    jsonText = json.loads(response.text)
+    return jsonText['recenttracks']['@attr']['total']

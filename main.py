@@ -18,6 +18,7 @@ import requests
 import shutil
 import os
 import random
+import time
 
 
 commandList = """
@@ -37,8 +38,12 @@ commandList = """
 !gettoptracks (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 !getplaycount (user) - Get playcount of user on LastFM
 !gettopartists (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
+!getweeklycount (user) - Get LastFM current weekslot count
 !drink (integer) - play a drinking game, drink the difference
 """
+
+currentEpoch = round(time.time())
+fromEpoch = 1583449200
 
 client = discord.Client()
 
@@ -202,5 +207,15 @@ async def on_message(message):
             await message.channel.send(f"The number was {wasNumber}, so {author[:-5]} has to drink {drinkThis} sips!")
         except:
             await message.channel.send("Enter a valid number!")
+        
+    if message.content.startswith('!getweeklycount'):
+        try:
+            user = message.content[15:]
+            count = l.getWeeklyCount(currentEpoch, fromEpoch, user)
+            await message.channel.send(f"The current time is {currentEpoch}")
+            await message.channel.send(f"{user}\'s current weekcount is {count}")
+              
+        except:
+            await message.channel.send("ERROR! Did you use the right syntax?")
 
 client.run(token)
