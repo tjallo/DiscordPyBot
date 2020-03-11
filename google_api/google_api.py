@@ -26,6 +26,3 @@ def googleImgSearch(query):
     for i in arr:
         if not ("svg" in str(i)):
             return i.strip(' "\'\t\r\n')
-
-
-print(googleImgSearch("Hallo Daar"))
