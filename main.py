@@ -211,8 +211,9 @@ async def on_message(message):
     if message.content.startswith('!getweeklycount'):
         try:
             user = message.content[15:]
-            count = l.getWeeklyCount(currentEpoch, fromEpoch, user)
             await message.channel.send(f"The current time is {currentEpoch}")
+            await message.channel.send("Processing...")
+            count = l.getWeeklyCount(currentEpoch, fromEpoch, user)            
             await message.channel.send(f"{user}\'s current weekcount is {count}")
               
         except:
