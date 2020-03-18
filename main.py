@@ -19,6 +19,9 @@ import shutil
 import os
 import random
 import time
+import requests
+import json
+import calendar
 
 
 commandList = """
@@ -43,7 +46,7 @@ commandList = """
 """
 
 currentEpoch = round(time.time())
-fromEpoch = 1583449200
+fromEpoch = l.parseTime()
 
 client = discord.Client()
 

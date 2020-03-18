@@ -4,6 +4,9 @@ from lastfm_api import getInfoPretty
 from lastfm_api import getTopArtistsPretty
 import json
 import credentials
+import requests
+import json
+import calendar
 
 
 
@@ -50,6 +53,23 @@ def getTopArtists(user, period):
     for artist in result.topartists.artist:
         artists.append(artist.name)
     return artists
+
+
+def getTime():
+
+    url = "https://www.last.fm/user/tjallo/listening-report/week"
+
+    payload = {}
+    headers= {}
+
+    response = requests.request("GET", url, headers=headers, data = payload)
+    return response.text
+
+def parseTime():
+    req = getTime()
+    pos = req.find("user/tjallo/library")
+    temp = req[pos:]
+    return temp[43:53]
 
 def getWeeklyCount(currentEpoch, fromEpoch, user):
 
