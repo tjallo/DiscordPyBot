@@ -1,3 +1,4 @@
 #!/bin/bash
 cd /home/tjalle/sambashare/torrent/github/DiscordPyBot/
-sudo python3 main.py
+sudo docker build -t discordbot .
+sudo docker run discordbot
