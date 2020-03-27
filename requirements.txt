@@ -1,4 +1,3 @@
-opencv-python
 praw
 wikipedia
 google_images_download
