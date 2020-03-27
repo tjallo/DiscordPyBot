@@ -1,3 +1,4 @@
+opencv-python
 praw
 wikipedia
 google_images_download
@@ -8,4 +9,3 @@ PyNaCl
 dataclasses
 flask
 flask_sqlalchemy
-opencv-python
