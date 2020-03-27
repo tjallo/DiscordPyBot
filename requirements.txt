@@ -8,3 +8,4 @@ PyNaCl
 dataclasses
 flask
 flask_sqlalchemy
+opencv-python
