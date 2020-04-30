@@ -152,12 +152,31 @@ async def on_message(message):
 #        await vc.disconnect()
 
     if message.content.startswith("!destroylibtard"):
+        randint = random(0,100)
+        if round(randint) == 69:
+            shrekFunction()
         fileN = "media//offensive.txt"
         length = u.file_len(fileN) -1
         pick = random.randint(0,length)     
         f=open(fileN)
         lines=f.readlines()
         await message.channel.send(lines[pick])
+    
+def shrekFunction():
+    filename = "media//shrek.txt"
+    shrekLength = u.file_len(filename) -1
+    shrekf = open(filename)
+    shreklines= shrekf.readlines()
+    for i in range(shrekLength):
+        await message.channel.send(shreklines[i])
+
+    if message.content.startswith("!supersecretshrekmessage"):
+        filename = "media//shrek.txt"
+        shrekLength = u.file_len(filename) -1
+        shrekf = open(filename)
+        shreklines= shrekf.readlines()
+        for i in range(shrekLength):
+            await message.channel.send(shreklines[i])
         
             
     if message.content.startswith("!addquote"):
