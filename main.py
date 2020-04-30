@@ -45,6 +45,14 @@ commandList = """
 !drink (integer) - play a drinking game, drink the difference
 """
 
+async def shrekFunction():
+    filename = "media//shrek.txt"
+    shrekLength = u.file_len(filename) -1
+    shrekf = open(filename)
+    shreklines= shrekf.readlines()
+    for i in range(shrekLength):
+        await message.channel.send(shreklines[i])
+
 currentEpoch = round(time.time())
 fromEpoch = l.parseTime()
 
@@ -160,15 +168,8 @@ async def on_message(message):
         pick = random.randint(0,length)     
         f=open(fileN)
         lines=f.readlines()
-        await message.channel.send(lines[pick])
-    
-def shrekFunction():
-    filename = "media//shrek.txt"
-    shrekLength = u.file_len(filename) -1
-    shrekf = open(filename)
-    shreklines= shrekf.readlines()
-    for i in range(shrekLength):
-        await message.channel.send(shreklines[i])
+        await message.channel.send(lines[pick])   
+
 
     if message.content.startswith("!supersecretshrekmessage"):
         filename = "media//shrek.txt"
