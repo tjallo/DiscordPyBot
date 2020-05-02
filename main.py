@@ -242,4 +242,13 @@ async def on_message(message):
         except:
             await message.channel.send("ERROR! Did you use the right syntax?")
 
+    if message.content.startswith('!ghostping'):
+        userPing = message.content[10:]
+        await message.delete()                
+        message = await message.channel.send(userPing)
+        await message.delete()
+
+    if message.content.startswith('!fortesting'):
+        await message.author.edit(nick="EditUser")
+
 client.run(token)
