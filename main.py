@@ -172,6 +172,7 @@ async def on_message(message):
 
 
     if message.content.startswith("!supersecretshrekmessage"):
+        await message.delete()
         filename = "media//shrek.txt"
         shrekLength = u.file_len(filename) -1
         shrekf = open(filename)
