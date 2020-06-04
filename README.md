@@ -4,7 +4,6 @@
 ## Disclaimer
 
 
-### The flaskserver module is still in development and should be ignored
 ### This readme is outdated. Haven't bothered to update it yet. (Installation should still be correct.)
 
 ***
