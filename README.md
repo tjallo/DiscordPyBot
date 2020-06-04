@@ -34,13 +34,13 @@ DiscordPyBot uses a number of Python libraries to work properly:
 Special thanks to [quicktype.io](https://app.quicktype.io/), for rapid code generation for JSON to classes.
 
 Use the provided requirements.txt (located in installation files folder) script to install all the PIP libraries for you.
-Using ```pip install -m requirements.txt```
+Using ```pip install -r requirements.txt```
 
 ###  Installation and Configuration
 
 Make sure that you have 'deeppyer' in your /bin/ folder to so you can run it from the command line (not in /home/.local/bin)
 
-Install all required pip files by running ```pip install -m requirements.txt``` the requirements are located in the installation files folder.
+Install all required pip files by running ```pip install -r requirements.txt``` the requirements are located in the installation files folder.
 
  The only file that needs configuration is the "credentials.py"
  Edit the "example_crediantials.py" with your own credentials, and rename the file to "credentials.py"
