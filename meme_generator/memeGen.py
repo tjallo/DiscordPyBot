@@ -1,13 +1,10 @@
 import requests
 import json
-# import credentials
+import credentials
 
 
-# imgUser = credentials.imgUser
-# imgPassword = credentials.imgPassword
-
-imgUser = "tjallo"
-imgPassword = 'blankpassword'
+imgUser = credentials.imgUser
+imgPassword = credentials.imgPassword
 
 def getMemeList():
     url = "https://api.imgflip.com/get_memes"	
@@ -45,5 +42,6 @@ def createMeme(memeID, text0, text1):
     url = f"https://api.imgflip.com/caption_image?template_id={memeID}&username={imgUser}&password={imgPassword}&text0={text0}&text1={text1}"
     response = requests.request("POST", url, headers=headers)
     
-    parsedResponse = response.text.replace('\\', '')
-    return find_between(parsedResponse, '"data":{"url":"', '","page_url":"')
+    return find_between(response.text, "{\"url\":\"", "\",\"pa")
+    #return find_between(response.text, "page_url\":\"", "\"")
+

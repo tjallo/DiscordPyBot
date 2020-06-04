@@ -129,7 +129,9 @@ async def on_message(message):
                 await message.channel.send("Processing...")
                 splitThis = message.content[9:]
                 output = splitThis.split('-')
-                url = m.createMeme(output[0], output[1], output[2])
+                url = url_fix((m.createMeme(output[0], output[1], output[2])).strip(os.sep))
+                url = u.remove_at(7, url)
+                url = u.remove_at(7, url)
                 await message.channel.send(url) 
             except:
                await message.channel.send("Memegen failed!")
