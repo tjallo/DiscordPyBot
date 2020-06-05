@@ -251,6 +251,5 @@ async def on_message(message):
     if message.content.startswith('!helpwanted'):
         helpFile = u.readFileToVariable('media/helpwanted.txt')
         await message.channel.send(helpFile)
-        await message.channel.send("\n\n You can also contribute with feedback or feature request on the github issues page: https://github.com/tjallo/DiscordPyBot/issues")
 
 client.run(token)
