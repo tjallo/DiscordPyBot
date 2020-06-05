@@ -30,3 +30,8 @@ def file_len(fname):
 def addLineToFile(line, fileName):
     with open(fileName, "a") as myfile:
         myfile.write(line)
+
+def readFileToVariable(filepath):
+    data = ""
+    with open(filepath, "r") as textfile:
+        return textfile.read()

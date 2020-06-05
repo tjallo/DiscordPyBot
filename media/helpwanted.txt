@@ -1,0 +1,6 @@
+You can help by creating, making or searching for the following:
+
+Corrosponding Feature request: https://github.com/tjallo/DiscordPyBot/issues/3
+Provide a .txt file with famous movie quotes and the corrosponding movie.
+
+Thanks!

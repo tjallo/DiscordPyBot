@@ -29,6 +29,7 @@ commandList = """
 !ping - Pong!
 !wiki - Get a wiki article
 !imgwiki - Get the first image on a Wiki Article
+!helpwanted - See what you can do to help develop this thiscord bot.
 !rkarma - Get an user's total karma on reddit
 !sourcecode - Get a GitHub link to the bot's source code
 !imgsearch - Google and post an image
@@ -247,7 +248,9 @@ async def on_message(message):
         message = await message.channel.send(userPing)
         await message.delete()
 
-    if message.content.startswith('!fortesting'):
-        await message.author.edit(nick="EditUser")
+    if message.content.startswith('!helpwanted'):
+        helpFile = u.readFileToVariable('media/helpwanted.txt')
+        await message.channel.send(helpFile)
+        await message.channel.send("\n\n You can also contribute with feedback or feature request on the github issues page: https://github.com/tjallo/DiscordPyBot/issues")
 
 client.run(token)
