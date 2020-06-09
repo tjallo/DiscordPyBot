@@ -1,8 +1,10 @@
 You can help by creating, making or searching for the following:
 
-Corrosponding Feature request: https://github.com/tjallo/DiscordPyBot/issues/3
-Provide a .txt file with famous movie quotes and the corrosponding movie.
+
+- Supply movie quotes with corrosponding movie in a .txt file
+- Supply the true shrek script in a .txt file (Tjalle will format it)
+- Supply some mildy offensive jokes
 
 Thanks!
-
-You can also open a new issue, feature request or report a bug via the provided link above.
+https://github.com/tjallo/DiscordPyBot/issues
+You can also find or open issues in the link above.
