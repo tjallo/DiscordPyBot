@@ -4,7 +4,6 @@ from google_api import google_api as g
 from deepfryer import deepfry as d
 from discord.ext import commands
 from credentials import token
-from credentials import debugPrefix
 from utils import utils as u
 from meme_generator import memeGen as m
 from werkzeug.urls import url_fix
@@ -258,10 +257,10 @@ async def on_message(message):
         helpFile = u.readFileToVariable('media/helpwanted.txt')
         await message.channel.send(helpFile)
 
-    if message.content.startswith('!debugCommands'):
+    if message.content.startswith('~debugCommands'):
         await message.channel.send(debugCommands)
 
-    if message.content.startswith9 (f'{debugPrefix}showQuoteList'):
+    if message.content.startswith9 ('~showQuoteList'):
         sendMessage = u.readFileToVariable('media/offensive.txt')
         await message.channel.send(sendMessage)
 

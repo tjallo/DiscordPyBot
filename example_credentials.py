@@ -17,6 +17,3 @@ imgPassword = 'imgflippassword'
 
 #LastFM API credentials
 lastApiKey = 'apikey'
-
-#Debug prefix
-debugPrefix = '#'
