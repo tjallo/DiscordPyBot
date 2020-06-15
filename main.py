@@ -4,6 +4,7 @@ from google_api import google_api as g
 from deepfryer import deepfry as d
 from discord.ext import commands
 from credentials import token
+from credentials import debugPrefix
 from utils import utils as u
 from meme_generator import memeGen as m
 from werkzeug.urls import url_fix
@@ -47,8 +48,9 @@ commandList = """
 """
 
 
-debugCommands = """
-!showQuoteList - show all available offensive quotes
+debugCommands = f"""
+{debugPrefix}showQuoteList - show all available offensive quotes
+{debugPrefix}showDebugPrefix - show raw debug prefix
 """
 
 async def shrekFunction():
@@ -257,11 +259,15 @@ async def on_message(message):
         helpFile = u.readFileToVariable('media/helpwanted.txt')
         await message.channel.send(helpFile)
 
-    if message.content.startswith('~debugCommands'):
+    if message.content.startswith(f'{debugPrefix}debugCommands'):
         await message.channel.send(debugCommands)
 
-    if message.content.startswith9 ('~showQuoteList'):
-        sendMessage = u.readFileToVariable('media/offensive.txt')
-        await message.channel.send(sendMessage)
+    if message.content.startswith(f'{debugPrefix}showQuoteList'):
+        helpFile = u.readFileToVariable('media/offensive.txt')
+        await message.channel.send(helpFile)
+
+    if message.content.startswith(f'{debugPrefix}showDebugPrefix'):
+        await message.channel.send(debugPrefix)
+
 
 client.run(token)
