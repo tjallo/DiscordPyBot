@@ -4,6 +4,7 @@ from google_api import google_api as g
 from deepfryer import deepfry as d
 from discord.ext import commands
 from credentials import token
+from credentials import debugPrefix
 from utils import utils as u
 from meme_generator import memeGen as m
 from werkzeug.urls import url_fix
@@ -44,6 +45,11 @@ commandList = """
 !gettopartists (user)-(timespan) - Get LastFM top tracks, date range choices: overall | 7day | 1month | 3month | 6month | 12month
 !getweeklycount (user) - Get LastFM current weekslot count
 !drink (integer) - play a drinking game, drink the difference
+"""
+
+
+debugCommands = """
+!showQuoteList - show all available offensive quotes
 """
 
 async def shrekFunction():
@@ -251,5 +257,12 @@ async def on_message(message):
     if message.content.startswith('!contribute'):
         helpFile = u.readFileToVariable('media/helpwanted.txt')
         await message.channel.send(helpFile)
+
+    if message.content.startswith('!debugCommands'):
+        await message.channel.send(debugCommands)
+
+    if message.content.startswith9 (f'{debugPrefix}showQuoteList'):
+        sendMessage = u.readFileToVariable('media/offensive.txt')
+        await message.channel.send(sendMessage)
 
 client.run(token)
