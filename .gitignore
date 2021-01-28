@@ -5,3 +5,6 @@ credentials.py
 *.jpg
 *.mp3
 bfg-1.13.0.jar
+temp.py
+haarcascade_eye.xml
+haarcascade_frontalface_default.xml
