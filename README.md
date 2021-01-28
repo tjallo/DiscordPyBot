@@ -1,6 +1,8 @@
 
 # DiscordPyBot
 
+# See v2 branch for an improved, work in progress, more OOP-based project.
+
 ## Disclaimer
 
 
