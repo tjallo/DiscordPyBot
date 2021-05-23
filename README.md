@@ -1,5 +1,5 @@
 
-# DiscordPyBot
+# DiscordPyBot // DEPRECATED
 
 # See v2 branch for an improved, work in progress, more OOP-based project.
 
