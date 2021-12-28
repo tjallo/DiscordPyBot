@@ -1,9 +1,0 @@
-You can help by creating, making or searching for the following:
-
-- Supply movie quotes with corrosponding movie in a .txt file
-- Supply the true shrek script in a .txt file (Tjalle will format it)
-- Supply some mildy offensive jokes
-
-Thanks!
-https://github.com/tjallo/DiscordPyBot/issues
-You can also find or open issues in the link above.
