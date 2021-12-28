@@ -6,7 +6,6 @@ from discord.ext.commands import Bot, DefaultHelpCommand
 # Local imports
 from src.cogs.chat import ChatCog
 from src.cogs.reddit import RedditCog
-from src.cogs.youtube import YoutubeCog
 
 
 class BotClient(Bot):
@@ -23,7 +22,6 @@ class BotClient(Bot):
 
         self.add_cog(ChatCog(self))
         self.add_cog(RedditCog(self))
-        self.add_cog(YoutubeCog(self))
 
 
 def main():
