@@ -89,7 +89,7 @@ class TriviaCog(commands.Cog, name="Trivia"):
                 correct_answer,
                 incorrect_answers,
             )
-
+            
             return question_obj
         except Exception as e:
             print(e)
