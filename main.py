@@ -6,6 +6,7 @@ from discord.ext.commands import Bot, DefaultHelpCommand
 # Local imports
 from src.cogs.chat import ChatCog
 from src.cogs.reddit import RedditCog
+from src.cogs.trivia import TriviaCog
 
 
 class BotClient(Bot):
@@ -22,6 +23,7 @@ class BotClient(Bot):
 
         self.add_cog(ChatCog(self))
         self.add_cog(RedditCog(self))
+        self.add_cog(TriviaCog(self))
 
 
 def main():
