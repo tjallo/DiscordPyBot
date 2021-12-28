@@ -1,5 +1,5 @@
 # DiscordPyBot
-## This version is still in development, see v2 branch for working example
+## This version is still in development, see v2 branch for working example, and v1 branch for a legacy version
 
 
 This is a development version!
