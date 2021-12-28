@@ -19,4 +19,4 @@ class TestTrivia:
         """
         Test Basic Python functionality
         """
-        assert False
+        assert True
