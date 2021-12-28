@@ -1,2 +1,2 @@
-# Discord.py-3
- Personal Discord bot, version 3
+# DiscordPyBot
+## This version is still in development, see v2 branch for working example
