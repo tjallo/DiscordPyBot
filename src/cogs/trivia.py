@@ -137,28 +137,29 @@ class TriviaCog(commands.Cog, name="Trivia"):
         def check(reaction, user):
             return user == ctx.author and str(reaction.emoji) in emojis
 
-        reaction, user = await self.bot.wait_for(
-            "reaction_add", timeout=10.0, check=check
-        )
+        try:
+            reaction, user = await self.bot.wait_for(
+                "reaction_add", timeout=30.0, check=check
+            )
 
-        user: Member = user
+            user: Member = user
 
-        reaction = str(reaction)
+            reaction = str(reaction)
 
-        if reaction in emojis:
+            if reaction in emojis:
 
-            index = emojis.index(reaction)
+                index = emojis.index(reaction)
 
-            ans_correct = question.check_answer(index)
+                ans_correct = question.check_answer(index)
 
-            m = ""
+                m = ""
 
-            if ans_correct:
-                m = f"**{question.correct_answer}** was indeed the correct answer! Well done {user.mention}."
-            else:
-                m = f"*{question.all_answers[index]}* was the incorrect answer, the correct answer was **{question.correct_answer}**. Better luck next time {user.mention}."
+                if ans_correct:
+                    m = f"**{question.correct_answer}** was indeed the correct answer! Well done {user.mention}."
+                else:
+                    m = f"*{question.all_answers[index]}* was the incorrect answer, the correct answer was **{question.correct_answer}**. Better luck next time {user.mention}."
 
-            return await ctx.send(m)
+                return await ctx.send(m)
 
-        # If the answer is to late.
-        await ctx.send("Cancceld trivia, answer was to late")
+        except Exception as e:
+            await msg.reply(f"There was no answer given in time, the correct answer was **{question.correct_answer}**")
