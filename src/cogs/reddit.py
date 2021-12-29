@@ -1,4 +1,5 @@
-from os import name
+from os import environ, name
+from os.path import isfile
 from discord.ext import commands
 from dotenv import dotenv_values
 from asyncpraw import Reddit
@@ -8,9 +9,24 @@ from asyncpraw.reddit import Redditor
 class RedditCog(commands.Cog, name="Reddit"):
     def __init__(self, bot):
         self.bot = bot
-        self.client_id = dotenv_values(".env").get("REDDIT_CLIENT_ID") or None
-        self.client_secret = dotenv_values(".env").get("REDDIT_CLIENT_SECRET") or None
-        self.client_user_agent = dotenv_values(".env").get("REDDIT_USER_AGENT") or None
+
+        if not isfile(".env"):
+            print(
+                f"\n\nThere was no (valid) '.env' file found. Please make sure it is there.\n\n Attempting to get env variables"
+            )
+
+            self.client_id = environ["REDDIT_CLIENT_ID"]
+            self.client_secret = environ["REDDIT_CLIENT_SECRET"]
+            self.client_user_agent = environ["REDDIT_USER_AGENT"]
+
+        else:
+            self.client_id = dotenv_values(".env").get("REDDIT_CLIENT_ID") or None
+            self.client_secret = (
+                dotenv_values(".env").get("REDDIT_CLIENT_SECRET") or None
+            )
+            self.client_user_agent = (
+                dotenv_values(".env").get("REDDIT_USER_AGENT") or None
+            )
 
         self.reddit = Reddit(
             client_id=self.client_id,

@@ -1,5 +1,6 @@
 # Dependencies
 from os.path import isfile
+from os import environ
 from dotenv import dotenv_values
 from discord.ext.commands import Bot, DefaultHelpCommand
 
@@ -29,16 +30,22 @@ class BotClient(Bot):
 def main():
     if not isfile(".env"):
         print(
-            f"\n\nThere was no (valid) '.env' file found. Please make sure it is there.\n\n"
+            f"\n\nThere was no (valid) '.env' file found. Please make sure it is there.\n\n Attempting to get env variables"
         )
-        quit()
 
-    config = dotenv_values(".env")
+        COMMAND_PREFIX = environ['COMMAND_PREFIX'] or "!"
+        BOT_TOKEN = environ['BOT_TOKEN']
+        DESCRIPTION = environ['DESCRIPTION'] or "Discord.py bot Ver 3.0 by Tjallo"
 
-    # Default properties
-    COMMAND_PREFIX = config.get("COMMAND_PREFIX") or "!"
-    BOT_TOKEN = config.get("BOT_TOKEN") or None
-    DESCRIPTION = config.get("DESCRIPTION") or "Discord.py bot Ver 3.0 by Tjallo"
+    else:
+        config = dotenv_values(".env")
+
+        # Default properties
+        COMMAND_PREFIX = config.get("COMMAND_PREFIX") or "!"
+        BOT_TOKEN = config.get("BOT_TOKEN") or None
+        DESCRIPTION = config.get("DESCRIPTION") or "Discord.py bot Ver 3.0 by Tjallo"
+
+
     HELP_COMMAND = DefaultHelpCommand()
 
     HELP_COMMAND.sort_commands = True

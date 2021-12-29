@@ -9,3 +9,12 @@ This is a development version!
 * Enter all the relevant details in the example.env file and rename the file to .env
 * Build the Docker image: `docker build --tag discord-py-bot .`
 * Run the discord-py-bot image in Docker
+
+
+## Enviroment vars that need to be set
+* COMMAND_PREFIX
+* BOT_TOKEN
+* DESCRIPTION
+* REDDIT_CLIENT_ID
+* REDDIT_CLIENT_SECRET
+* REDDIT_USER_AGENT
