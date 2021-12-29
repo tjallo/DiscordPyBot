@@ -18,3 +18,5 @@ This is a development version!
 * REDDIT_CLIENT_ID
 * REDDIT_CLIENT_SECRET
 * REDDIT_USER_AGENT
+
+You can set these enviroment variables quite easily in the docker run command, see the example_docker_run.sh file for an example. These enviroment variables will then persist in the container you have created with docker run.
