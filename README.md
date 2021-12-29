@@ -15,6 +15,8 @@
     -e REDDIT_CLIENT_ID="client_id" \
     -e REDDIT_CLIENT_SECRET="client_secret" \
     -e REDDIT_USER_AGENT="discord_bot" tjallew/discord-py-bot
+    -e IMGFLIP_USER="usernm" \
+    -e IMGFLIP_PASSWORD="password" \
 
 
 ****
@@ -23,5 +25,6 @@
 Details you need for the enviroment variables can be found here:
 * [Discord Application page](https://discord.com/developers/applications)
 * [Reddit API details page](https://www.reddit.com/prefs/apps)
+* [ImgFlip API](https://imgflip.com/api)
 
 These details will persist in the container when you run docker run! So you can run the created container without the enviroment variables afterwards. Using Docker Hub application for this management is recommended.

@@ -11,6 +11,7 @@ from src.cogs.chat import ChatCog
 from src.cogs.reddit import RedditCog
 from src.cogs.trivia import TriviaCog
 from src.cogs.deepfry import DeepfryCog
+from src.cogs.memes import MemeCog
 
 from src.util.start_up import cleanup
 
@@ -34,6 +35,7 @@ class BotClient(Bot):
         self.add_cog(RedditCog(self))
         self.add_cog(TriviaCog(self))
         self.add_cog(DeepfryCog(self))
+        self.add_cog(MemeCog(self))
 
         
         
