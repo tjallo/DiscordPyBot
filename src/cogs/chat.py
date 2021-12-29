@@ -10,5 +10,5 @@ class ChatCog(commands.Cog, name="Chat"):
     async def ping(self, ctx, *, member: Member = None):
         """- Returns pong"""
         member = member or ctx.author
-        await ctx.send(f"Hello {member}!")
+        await ctx.send(f"Hello {member.mention}!")
 

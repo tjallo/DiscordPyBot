@@ -3,7 +3,8 @@ from os.path import isfile
 from discord.ext import commands
 from dotenv import dotenv_values
 from asyncpraw import Reddit
-from asyncpraw.reddit import Redditor
+from asyncpraw.reddit import Redditor, Submission, Subreddit
+from random import choice
 
 
 class RedditCog(commands.Cog, name="Reddit"):
@@ -52,3 +53,14 @@ class RedditCog(commands.Cog, name="Reddit"):
             message = f"User with the username: {name} was not found."
 
         await ctx.send(message)
+
+    @commands.command(name="cursedImage")
+    async def cursed_image(self, ctx):
+        """- returns a random cursed image"""
+
+
+        subreddit: Subreddit = await self.reddit.subreddit("cursedimages")
+        image: Submission = choice([meme async for meme in subreddit.hot(limit=25)])
+        await ctx.send(f"{ctx.author.mention} be careful what you wish for!")
+        await ctx.send(image.url)
+

@@ -89,7 +89,7 @@ class TriviaCog(commands.Cog, name="Trivia"):
                 correct_answer,
                 incorrect_answers,
             )
-            
+
             return question_obj
         except Exception as e:
             print(e)
@@ -104,7 +104,7 @@ class TriviaCog(commands.Cog, name="Trivia"):
         await ctx.send(message)
 
     @commands.command(name="question")
-    async def question(self, ctx, arg, member: Member = None):
+    async def question(self, ctx, arg=None, member: Member = None):
         """- Gives a trivia question can be used with the questionCategory command e.g. !question 10 will give you a question of the 10th category"""
         member = member or ctx.author
 

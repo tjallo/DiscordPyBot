@@ -8,6 +8,9 @@ from discord.ext.commands import Bot, DefaultHelpCommand
 from src.cogs.chat import ChatCog
 from src.cogs.reddit import RedditCog
 from src.cogs.trivia import TriviaCog
+from src.cogs.deepfry import DeepfryCog
+
+from src.util.start_up import cleanup
 
 
 class BotClient(Bot):
@@ -25,17 +28,20 @@ class BotClient(Bot):
         self.add_cog(ChatCog(self))
         self.add_cog(RedditCog(self))
         self.add_cog(TriviaCog(self))
+        self.add_cog(DeepfryCog(self))
 
 
 def main():
+    cleanup()
+
     if not isfile(".env"):
         print(
             f"\n\nThere was no (valid) '.env' file found. Please make sure it is there.\n\n Attempting to get env variables"
         )
 
-        COMMAND_PREFIX = environ['COMMAND_PREFIX'] or "!"
-        BOT_TOKEN = environ['BOT_TOKEN']
-        DESCRIPTION = environ['DESCRIPTION'] or "Discord.py bot Ver 3.0 by Tjallo"
+        COMMAND_PREFIX = environ["COMMAND_PREFIX"] or "!"
+        BOT_TOKEN = environ["BOT_TOKEN"]
+        DESCRIPTION = environ["DESCRIPTION"] or "Discord.py bot Ver 3.0 by Tjallo"
 
     else:
         config = dotenv_values(".env")
@@ -45,7 +51,6 @@ def main():
         BOT_TOKEN = config.get("BOT_TOKEN") or None
         DESCRIPTION = config.get("DESCRIPTION") or "Discord.py bot Ver 3.0 by Tjallo"
 
-
     HELP_COMMAND = DefaultHelpCommand()
 
     HELP_COMMAND.sort_commands = True
@@ -54,7 +59,9 @@ def main():
         command_prefix=COMMAND_PREFIX,
         help_command=HELP_COMMAND,
         description=DESCRIPTION,
+        case_insensitive=True
     )
+
     bot.run(BOT_TOKEN)
 
 
