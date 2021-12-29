@@ -39,12 +39,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: tjallew/discord-py-bot:${{ secrets.REVISION }}.${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+          tags: tjallew/discord-py-bot:latest
           
-      - name: Update Minor version
-        uses: hmanzur/actions-set-secret@v2.0.0
-        with:
-          name: 'MINOR'
-          value: $((${{ secrets.MINOR }}+1))
-          repository: tjallo/DiscordPyBot
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      
