@@ -3,6 +3,8 @@ from os.path import isfile
 from os import environ
 from dotenv import dotenv_values
 from discord.ext.commands import Bot, DefaultHelpCommand
+from discord import Game
+from asyncio import run
 
 # Local imports
 from src.cogs.chat import ChatCog
@@ -15,7 +17,10 @@ from src.util.start_up import cleanup
 
 class BotClient(Bot):
     async def on_ready(self):
+        activity = Game(name="my ass as a drum.", type=1)
+        await self.change_presence(activity=activity)
         print(f"Logged in as {self.user}")
+        
 
     def __init__(self, command_prefix, help_command=..., description=None, **options):
         super().__init__(
@@ -29,6 +34,9 @@ class BotClient(Bot):
         self.add_cog(RedditCog(self))
         self.add_cog(TriviaCog(self))
         self.add_cog(DeepfryCog(self))
+
+        
+        
 
 
 def main():
@@ -59,10 +67,16 @@ def main():
         command_prefix=COMMAND_PREFIX,
         help_command=HELP_COMMAND,
         description=DESCRIPTION,
-        case_insensitive=True
+        case_insensitive=True,
     )
 
+
     bot.run(BOT_TOKEN)
+
+  
+        
+
+    
 
 
 if __name__ == "__main__":
