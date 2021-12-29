@@ -6,12 +6,14 @@ from discord.ext.commands import Bot, DefaultHelpCommand
 from discord import Game
 from asyncio import run
 
+
 # Local imports
 from src.cogs.chat import ChatCog
 from src.cogs.reddit import RedditCog
 from src.cogs.trivia import TriviaCog
 from src.cogs.deepfry import DeepfryCog
 from src.cogs.memes import MemeCog
+from src.cogs.drinking import DrinkingCog
 
 from src.util.start_up import cleanup
 
@@ -21,7 +23,6 @@ class BotClient(Bot):
         activity = Game(name="my ass as a drum.", type=1)
         await self.change_presence(activity=activity)
         print(f"Logged in as {self.user}")
-        
 
     def __init__(self, command_prefix, help_command=..., description=None, **options):
         super().__init__(
@@ -36,9 +37,7 @@ class BotClient(Bot):
         self.add_cog(TriviaCog(self))
         self.add_cog(DeepfryCog(self))
         self.add_cog(MemeCog(self))
-
-        
-        
+        self.add_cog(DrinkingCog(self))
 
 
 def main():
@@ -65,6 +64,8 @@ def main():
 
     HELP_COMMAND.sort_commands = True
 
+    
+
     bot: BotClient = BotClient(
         command_prefix=COMMAND_PREFIX,
         help_command=HELP_COMMAND,
@@ -72,13 +73,7 @@ def main():
         case_insensitive=True,
     )
 
-
     bot.run(BOT_TOKEN)
-
-  
-        
-
-    
 
 
 if __name__ == "__main__":
