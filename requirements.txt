@@ -83,7 +83,7 @@ soupsieve==2.3.1
 ssh-import-id==5.10
 systemd-python==234
 tomli==1.2.3
-Twisted==18.9.0
+Twisted==20.3.0
 typing-extensions==4.0.1
 ubuntu-advantage-tools==27.4
 ufw==0.36
