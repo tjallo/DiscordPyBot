@@ -1,5 +1,5 @@
 # Run this command to run the most recent docker image, with your relevant details
-docker pull tjallew/discord-py-bot:latest
+docker pull tjallew/discord-py-bot:master
 
 docker run \
 -e BOT_TOKEN="bot_token" \
