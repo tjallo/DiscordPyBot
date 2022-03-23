@@ -120,3 +120,4 @@ build.sh
 temp.py
 docker_run.sh
 temp/
+db/

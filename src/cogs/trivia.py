@@ -5,6 +5,9 @@ from json import loads
 from random import shuffle
 from html import unescape
 from discord import Member
+from pathlib import Path
+from src.api.user_manager import UserManager
+from os import getcwd
 
 
 class TriviaQuestion:
@@ -26,6 +29,8 @@ class TriviaQuestion:
         self.all_answers = self._shuffle_answers(
             self.correct_answer, self.incorrect_answers
         )
+
+        
 
     def check_answer(self, index):
         """
@@ -51,6 +56,9 @@ class TriviaCog(commands.Cog, name="Trivia"):
         self.SESSION_TOKEN = self._get_session_token()
         self.categories = self._get_categories()
         self.possible_categories = [int(x.split(":")[0]) for x in self.categories]
+
+        path = Path(getcwd()) / "db" / "user_man"
+        self.user_manager = UserManager(path)
 
     def _get_session_token(self) -> str:
         return loads(get("https://opentdb.com/api_token.php?command=request").text)[
@@ -156,10 +164,28 @@ class TriviaCog(commands.Cog, name="Trivia"):
 
                 if ans_correct:
                     m = f"**{question.correct_answer}** was indeed the correct answer! Well done {user.mention}."
+                    self.user_manager.increment_user(ctx.guild, ctx.author, True)
                 else:
                     m = f"*{question.all_answers[index]}* was the incorrect answer, the correct answer was **{question.correct_answer}**. Better luck next time {user.mention}."
+                    self.user_manager.increment_user(ctx.guild, ctx.author, False)
 
                 return await ctx.send(m)
 
         except Exception as e:
             await msg.reply(f"There was no answer given in time, the correct answer was **{question.correct_answer}**")
+
+    @commands.command(name="triviaStats")
+    async def trivia_stats(self, ctx):
+        """
+        Gives back your stats for trivia on this server
+        """
+        try:
+            user_data = self.user_manager.get_user_data(ctx.guild ,ctx.author)
+            tries = user_data["user_tries"]
+            score = user_data["user_score"]
+            ratio = round(score / tries * 100, 2)
+            msg = f"Your trivia stats are\n\t*Number of tries*: **{tries}**\n\t*Number of correct answers*: **{score}**\n\t*Percentage of correct answers*: **{ratio}%**"
+        except Exception as e:
+            msg = "No data was found for your account. Play some trivia games using !question :)"
+
+        await ctx.send(msg)

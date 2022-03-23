@@ -3,6 +3,8 @@ from discord import Member
 from os.path import curdir, abspath
 from pathlib import Path
 from discord import Member
+from src.api.user_manager import UserManager
+from os import getcwd
 
 from discord.ext.commands.context import Context
 
