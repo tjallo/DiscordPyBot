@@ -11,10 +11,10 @@ class DrinkingCog(commands.Cog, name="Games"):
 
     @commands.command(name="randomDrink")
     async def ping(self, ctx, *args, member: Member = None):
-        """[tag] [tag] [tag] - tag as many people as you want, the game picks one random player that has to drink between 1 and 10 sips"""
+        """[tag] [tag] [tag] - tag as many people as you want, the game picks one random player that has to drink between 1 and 12 sips"""
         member = member or ctx.author
         people = [x for x in args]
-        i = randint(1, 10)
+        i = randint(1, 12)
         person = choice(people)
 
         await ctx.send(f"{person} has to drink {i} sips")
