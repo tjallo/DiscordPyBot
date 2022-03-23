@@ -14,9 +14,10 @@
     -e DESCRIPTION="Discord.py bot version 3.0 by Tjallo, Invoke !help [command] to see the full command description" \
     -e REDDIT_CLIENT_ID="client_id" \
     -e REDDIT_CLIENT_SECRET="client_secret" \
-    -e REDDIT_USER_AGENT="discord_bot" tjallew/discord-py-bot
+    -e REDDIT_USER_AGENT="discord_bot" \
     -e IMGFLIP_USER="usernm" \
     -e IMGFLIP_PASSWORD="password" \
+    tjallew/discord-py-bot
 
 
 ****

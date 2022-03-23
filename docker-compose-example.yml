@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    discord-py-bot:
+        environment:
+            - BOT_TOKEN=bot_token
+            - COMMAND_PREFIX=!
+            - DESCRIPTION=Discord.py bot version 3.0 by Tjallo, Invoke !help [command] to see the full command description
+            - REDDIT_CLIENT_ID=client_id
+            - REDDIT_CLIENT_SECRET=client_secret
+            - REDDIT_USER_AGENT=discord_bot
+            - IMGFLIP_USER=usernm
+            - IMGFLIP_PASSWORD=password
+        image: tjallew/discord-py-bot
+        restart: unless-stopped
