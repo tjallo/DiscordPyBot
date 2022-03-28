@@ -18,6 +18,7 @@ from src.cogs.trivia import TriviaCog
 from src.cogs.deepfry import DeepfryCog
 from src.cogs.memes import MemeCog
 from src.cogs.drinking import DrinkingCog
+from src.cogs.audio import AudioCog
 
 from src.util.start_up import cleanup
 
@@ -42,6 +43,7 @@ class BotClient(Bot):
         self.add_cog(DeepfryCog(self))
         self.add_cog(MemeCog(self))
         self.add_cog(DrinkingCog(self))
+        self.add_cog(AudioCog(self))
 
 def setup_logger():
     folder_location = Path(f"{getcwd()}/db/logging")
