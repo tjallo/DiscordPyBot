@@ -1,6 +1,6 @@
 from os import getcwd
 from pathlib import Path
-from pytube import YouTube
+from pytube import YouTube, Search
 
 
 class YoutubeDownloader:
@@ -17,3 +17,9 @@ class YoutubeDownloader:
             return YouTube(url).streams.get_audio_only().download(self.save_path)
         except Exception as e:
             return None
+
+    def search(self, query: str):
+        s = Search(query)
+
+        return s.results[:5]
+            
