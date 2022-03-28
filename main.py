@@ -1,10 +1,14 @@
 # Dependencies
 from os.path import isfile
-from os import environ
+from os import environ, makedirs, getcwd
 from dotenv import dotenv_values
 from discord.ext.commands import Bot, DefaultHelpCommand
 from discord import Game
 from asyncio import run
+from pathlib import Path
+import logging
+
+from numpy import True_
 
 
 # Local imports
@@ -39,9 +43,23 @@ class BotClient(Bot):
         self.add_cog(MemeCog(self))
         self.add_cog(DrinkingCog(self))
 
+def setup_logger():
+    folder_location = Path(f"{getcwd()}/db/logging")
+    makedirs(folder_location, exist_ok=True)
+
+    file_path = folder_location / "discord.log"
+
+    logger = logging.getLogger('discord')
+    logger.setLevel(logging.DEBUG)
+    handler = logging.FileHandler(filename=file_path, encoding='utf-8', mode="w+")
+
+    handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+
+    logger.addHandler(handler)
 
 def main():
     cleanup()
+    setup_logger()
 
     if not isfile(".env"):
         print(
