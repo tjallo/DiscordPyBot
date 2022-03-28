@@ -6,7 +6,7 @@ import discord
 from discord.ext import commands
 
 
-class AudioCog(commands.Cog):
+class AudioCog(commands.Cog, name="Audio"):
     def __init__(self, bot):
         self.bot = bot
 
@@ -20,8 +20,6 @@ class AudioCog(commands.Cog):
         ctx.voice_client.play(
             source, after=lambda e: print("Player error: %s" % e) if e else None
         )
-
-        # await ctx.send("Now playing: {}".format(file_path))
 
     @commands.command(name="disconnect")
     async def disconnect(self, ctx):
@@ -39,4 +37,3 @@ class AudioCog(commands.Cog):
                 raise commands.CommandError("Author not connected to a voice channel.")
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
-
