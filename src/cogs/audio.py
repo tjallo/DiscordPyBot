@@ -1,6 +1,7 @@
 from asyncio import sleep
 from os import getcwd
 from pathlib import Path
+from src.api.youtube_downloader import YoutubeDownloader
 
 import discord
 
@@ -42,7 +43,25 @@ class AudioCog(commands.Cog, name="Audio"):
 
         await ctx.voice_client.disconnect()
 
+    @commands.command(name="yt")
+    async def yt(self, ctx, *, link):
+        """
+        use: !yt [yt_url]
+        """
+
+        yt_dl = YoutubeDownloader()
+
+        path = yt_dl.get_video_audio(link)
+
+        if path is not None:
+            await self._play_file(ctx, path)
+        else:
+            await ctx.send("Please enter a valid youtube link.")
+        
+
+
     @chevyVan.before_invoke
+    @yt.before_invoke
     async def ensure_voice(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:
