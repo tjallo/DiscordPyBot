@@ -1,3 +1,4 @@
+from asyncio import sleep
 from os import getcwd
 from pathlib import Path
 
@@ -10,16 +11,30 @@ class AudioCog(commands.Cog, name="Audio"):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def chevyVan(self, ctx):
-        """Plays a file from the local filesystem"""
-
-        file_path = Path(f"{getcwd()}/audio/chevyvan.mp3")
-
+    async def _play_file(self, ctx, file_path):
         source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(file_path))
         ctx.voice_client.play(
             source, after=lambda e: print("Player error: %s" % e) if e else None
         )
+
+        while ctx.voice_client.is_playing(): #Checks if voice is playing
+            await sleep(1) #While it's playing it sleeps for 1 second
+        else:
+            await sleep(2) #If it's not playing it waits 2 seconds
+            while ctx.voice_client.is_playing(): #and checks once again if the bot is not playing
+                break #if it's playing it breaks
+            else:
+                await ctx.voice_client.disconnect() #if not it disconnects
+
+    @commands.command()
+    async def chevyVan(self, ctx: commands.Context):
+        """Plays a file from the local filesystem"""
+
+        file_path = Path(f"{getcwd()}/audio/chevyvan.mp3")
+
+        await self._play_file(ctx, file_path)
+
+        
 
     @commands.command(name="disconnect")
     async def disconnect(self, ctx):
