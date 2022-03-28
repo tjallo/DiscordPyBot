@@ -21,7 +21,7 @@ class AudioCog(commands.Cog):
             source, after=lambda e: print("Player error: %s" % e) if e else None
         )
 
-        await ctx.send("Now playing: {}".format(file_path))
+        # await ctx.send("Now playing: {}".format(file_path))
 
     @commands.command(name="disconnect")
     async def disconnect(self, ctx):
@@ -31,7 +31,6 @@ class AudioCog(commands.Cog):
 
     @chevyVan.before_invoke
     async def ensure_voice(self, ctx):
-        ctx.voice_client.source.volume = 1
         if ctx.voice_client is None:
             if ctx.author.voice:
                 await ctx.author.voice.channel.connect()
@@ -40,3 +39,4 @@ class AudioCog(commands.Cog):
                 raise commands.CommandError("Author not connected to a voice channel.")
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
+
