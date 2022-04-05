@@ -16,6 +16,7 @@ class YoutubeDownloader:
         try:
             return YouTube(url).streams.get_audio_only().download(self.save_path)
         except Exception as e:
+            print(e)
             return None
 
     def search(self, query: str):
