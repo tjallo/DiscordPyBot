@@ -61,7 +61,7 @@ class AudioCog(commands.Cog, name="Audio"):
     @commands.command(name="ytSearch")
     async def yt_search(self, ctx, *, query):
         """
-        use: !yt-search [query]
+        use: !ytSearch [query]
         """
 
         yt_dl = YoutubeDownloader()
