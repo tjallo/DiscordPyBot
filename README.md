@@ -1,5 +1,5 @@
 # DiscordPyBot by tjallew
-### This version is still in development, see v2 branch for working example, and v1 branch for a legacy version
+### See the v1 and v2 bracnhes for (deprecated) earlier iterations of this bot.
 
 ****
 ## Github link
