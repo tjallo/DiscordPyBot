@@ -121,4 +121,3 @@ temp.py
 docker_run.sh
 temp/
 db/
-docker-compose.yml
