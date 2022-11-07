@@ -50,9 +50,12 @@ class ChatCog(commands.Cog, name="Chat"):
         member = member or ctx.author
 
         await ctx.message.delete()
+
+        allowed_users = ['tjalle', 'daan']
         
-        if ctx.author.__str__() == "Tjalle#0810":
-            msg = await ctx.send("@everyone")
-            await msg.delete()
+        for user in allowed_users:
+            if user in str(ctx.author.__str__()).lower():
+                msg = await ctx.send("@everyone")
+                await msg.delete()
         else:
             await ctx.send("Uh oh, you are not allowed to use this feature!")
