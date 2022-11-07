@@ -55,4 +55,4 @@ class ChatCog(commands.Cog, name="Chat"):
             msg = await ctx.send("@everyone")
             await msg.delete()
         else:
-            await ctx.send("Uh oh, you are not allowed to use this comment!")
+            await ctx.send("Uh oh, you are not allowed to use this feature!")
