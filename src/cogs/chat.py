@@ -43,3 +43,16 @@ class ChatCog(commands.Cog, name="Chat"):
 
         for word in words:
             await ctx.send(word)
+
+    @commands.command(name="ghostping")
+    async def deepfry(self, ctx, member: Member = None):
+        """ most annonying function in this bot"""
+        member = member or ctx.author
+
+        await ctx.message.delete()
+        
+        if ctx.author.__str__() == "Tjalle#0810":
+            msg = await ctx.send("@everyone")
+            await msg.delete()
+        else:
+            await ctx.send("Uh oh, you are not allowed to use this comment!")
