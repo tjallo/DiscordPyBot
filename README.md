@@ -1,6 +1,3 @@
-# DEPRECATED due to changes in how discord bots work
-No plan to update to the new / system soon
-
 ## DiscordPyBot by tjallew
 ### See the v1 and v2 bracnhes for (deprecated) earlier iterations of this bot.
 
@@ -24,6 +21,8 @@ No plan to update to the new / system soon
 
 
 ****
+
+## Make sure to enable all Privileged Gateway Intents in your discord developer portal
 
 
 Details you need for the enviroment variables can be found here:
