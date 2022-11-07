@@ -4,11 +4,10 @@ from os import environ, makedirs, getcwd
 from dotenv import dotenv_values
 from discord.ext.commands import Bot, DefaultHelpCommand
 from discord import Game
-from asyncio import run
 from pathlib import Path
+from discord import Intents
 import logging
 
-from numpy import True_
 
 
 # Local imports
@@ -25,6 +24,13 @@ from src.util.start_up import cleanup
 
 class BotClient(Bot):
     async def on_ready(self):
+        await self.add_cog(ChatCog(self))
+        await self.add_cog(RedditCog(self))
+        await self.add_cog(TriviaCog(self))
+        await self.add_cog(DeepfryCog(self))
+        await self.add_cog(MemeCog(self))
+        await self.add_cog(DrinkingCog(self))
+        await self.add_cog(AudioCog(self))
         activity = Game(name="my ass as a drum.", type=1)
         await self.change_presence(activity=activity)
         print(f"Logged in as {self.user}")
@@ -34,16 +40,10 @@ class BotClient(Bot):
             command_prefix,
             help_command=help_command,
             description=description,
-            **options,
+            **options, intents=Intents.all()
         )
 
-        self.add_cog(ChatCog(self))
-        self.add_cog(RedditCog(self))
-        self.add_cog(TriviaCog(self))
-        self.add_cog(DeepfryCog(self))
-        self.add_cog(MemeCog(self))
-        self.add_cog(DrinkingCog(self))
-        self.add_cog(AudioCog(self))
+    
 
 def setup_logger():
     folder_location = Path(f"{getcwd()}/db/logging")
