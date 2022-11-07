@@ -1,3 +1,9 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tjallo/DiscordPyBot/Run%20tests,%20build%20and%20publish%20docker%20image)
+![GitHub Repo stars](https://img.shields.io/github/stars/tjallo/DiscordPyBot?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/tjallo/DiscordPyBot?style=social)
+![Docker Pulls](https://img.shields.io/docker/pulls/tjallew/discord-py-bot)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/tjallo/DiscordPyBot)
+
 ## DiscordPyBot by tjallew
 ### See the v1 and v2 bracnhes for (deprecated) earlier iterations of this bot.
 
